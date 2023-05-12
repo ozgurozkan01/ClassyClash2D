@@ -26,3 +26,14 @@
 41	1345	7056163025821664	_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_window.c.obj	4f98e115631b5779
 1883	2060	7056163032973970	_deps/raylib-build/raylib/external/glfw/src/libglfw3.a	44f03d1a1a9e39b0
 2060	2170	7056163034068796	_deps/raylib-build/raylib/libraylib.a	51ed965de7686a86
+12	105	7056172073293311	CMakeFiles/ClassyClash2D.dir/GameManager.cpp.obj	279c4f670eda5644
+5	106	7056172073293311	CMakeFiles/ClassyClash2D.dir/main.cpp.obj	88c8ead714b12469
+106	340	7056172075526906	ClassyClash2D.exe	9c4129d5572a2b27
+3	70	7056172164644133	CMakeFiles/ClassyClash2D.dir/main.cpp.obj	88c8ead714b12469
+70	256	7056172166443695	ClassyClash2D.exe	9c4129d5572a2b27
+4	72	7056172408478197	CMakeFiles/ClassyClash2D.dir/main.cpp.obj	88c8ead714b12469
+73	268	7056172410341468	ClassyClash2D.exe	9c4129d5572a2b27
+4	71	7056173349226428	CMakeFiles/ClassyClash2D.dir/main.cpp.obj	88c8ead714b12469
+71	270	7056173351117870	ClassyClash2D.exe	9c4129d5572a2b27
+4	84	7056173449606780	CMakeFiles/ClassyClash2D.dir/main.cpp.obj	88c8ead714b12469
+85	299	7056173451743225	ClassyClash2D.exe	9c4129d5572a2b27
