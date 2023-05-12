@@ -6,14 +6,18 @@ int main() {
 
     gameManager->CreateGameWindow();
     SetTargetFPS(gameManager->GetFps());
+    gameManager->LoadGameObjectTextures();
 
     while(!WindowShouldClose())
     {
         BeginDrawing();
-        ClearBackground(BLUE);
+        ClearBackground(WHITE);
+
+        gameManager->Play();
 
         EndDrawing();
     }
+    gameManager->UnloadGameObjectTextures();
     CloseWindow();
     delete gameManager;
     return 0;

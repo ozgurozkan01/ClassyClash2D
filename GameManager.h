@@ -6,6 +6,7 @@
 #define CLASSYCLASH2D_GAMEMANAGER_H
 #include "raylib.h"
 
+class Map;
 
 class GameManager {
 
@@ -16,11 +17,16 @@ private:
 
     int fps;
 
+    // CLASSES
+    Map* map;
+
 public:
 
     GameManager();
 
     void CreateGameWindow();
+    void LoadGameObjectTextures();
+    void UnloadGameObjectTextures();
     void Play();
     int GetFps() const;
 };
