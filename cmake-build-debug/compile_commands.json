@@ -6,6 +6,11 @@
 },
 {
   "directory": "C:/Users/ozgur/OneDrive/Documents/GitHub/ClassyClash2D/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.2\\bin\\mingw\\bin\\G__~1.EXE -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -IC:/Users/ozgur/OneDrive/Documents/GitHub/ClassyClash2D/cmake-build-debug/_deps/raylib-src/src -IC:/Users/ozgur/OneDrive/Documents/GitHub/ClassyClash2D/cmake-build-debug/_deps/raylib-src/src/external/glfw/include -g -fdiagnostics-color=always -o CMakeFiles\\ClassyClash2D.dir\\GameManager.cpp.obj -c C:\\Users\\ozgur\\OneDrive\\Documents\\GitHub\\ClassyClash2D\\GameManager.cpp",
+  "file": "C:\\Users\\ozgur\\OneDrive\\Documents\\GitHub\\ClassyClash2D\\GameManager.cpp"
+},
+{
+  "directory": "C:/Users/ozgur/OneDrive/Documents/GitHub/ClassyClash2D/cmake-build-debug",
   "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.2\\bin\\mingw\\bin\\gcc.exe -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -D_CRT_SECURE_NO_WARNINGS -IC:/Users/ozgur/OneDrive/Documents/GitHub/ClassyClash2D/cmake-build-debug/_deps/raylib-src/src -isystem C:/Users/ozgur/OneDrive/Documents/GitHub/ClassyClash2D/cmake-build-debug/_deps/raylib-src/src/external/glfw/include -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -fdiagnostics-color=always -std=gnu99 -o _deps\\raylib-build\\raylib\\CMakeFiles\\raylib.dir\\rcore.c.obj -c C:\\Users\\ozgur\\OneDrive\\Documents\\GitHub\\ClassyClash2D\\cmake-build-debug\\_deps\\raylib-src\\src\\rcore.c",
   "file": "C:\\Users\\ozgur\\OneDrive\\Documents\\GitHub\\ClassyClash2D\\cmake-build-debug\\_deps\\raylib-src\\src\\rcore.c"
 },
