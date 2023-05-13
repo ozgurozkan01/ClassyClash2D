@@ -11,8 +11,7 @@ class Map;
 class GameManager {
 
 private:
-    const int windowHeight;
-    const int windowWidth;
+
     const char* gameName;
 
     int fps;
@@ -21,12 +20,14 @@ private:
     Map* map;
 
 public:
-
+    static const int windowHeight = 384.f;
+    static const int windowWidth = 384.f;
     GameManager();
 
     void CreateGameWindow();
     void LoadGameObjectTextures();
     void UnloadGameObjectTextures();
+    void DrawGameObjects();
     void Play();
     int GetFps() const;
 };

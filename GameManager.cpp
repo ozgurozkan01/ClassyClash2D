@@ -5,7 +5,7 @@
 #include "GameManager.h"
 #include "Map.h"
 
-GameManager::GameManager() : windowHeight(384), windowWidth(384)
+GameManager::GameManager()
 {
     gameName = "Classy Clash 2D";
     fps = 60;
@@ -20,7 +20,7 @@ void GameManager::CreateGameWindow()
 
 void GameManager::Play()
 {
-    map->DrawMap();
+    map->Move();
 }
 
 int GameManager::GetFps() const
@@ -36,4 +36,9 @@ void GameManager::LoadGameObjectTextures()
 void GameManager::UnloadGameObjectTextures()
 {
     UnloadTexture(map->GetMapTexture());
+}
+
+void GameManager::DrawGameObjects()
+{
+    map->DrawMap();
 }

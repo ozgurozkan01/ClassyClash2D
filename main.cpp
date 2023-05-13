@@ -15,6 +15,7 @@ int main() {
 
         gameManager->Play();
 
+        gameManager->DrawGameObjects();
         EndDrawing();
     }
     gameManager->UnloadGameObjectTextures();
