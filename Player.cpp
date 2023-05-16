@@ -4,6 +4,7 @@
 
 #include "Player.h"
 #include "GameManager.h"
+#include "Map.h"
 #include <iostream>
 
 Player::Player()
@@ -37,6 +38,11 @@ Rectangle Player::SetDest()
 }
 
 Rectangle Player::SetSource() {
-    source = {0.f, 0.f, (float)playerTexture.width / 6.f, (float)playerTexture.height};
+    source = {0.f, 0.f, leftOrRightDirection * (float)playerTexture.width / 6.f, (float)playerTexture.height};
     return source;
+}
+
+void Player::DetermineViewDirection(float movementDirectionX)
+{
+    movementDirectionX < 0.f ? leftOrRightDirection = -1.f : leftOrRightDirection = 1.f;
 }

@@ -4,7 +4,6 @@
 
 #include "Map.h"
 #include "raymath.h"
-#include "GameManager.h"
 
 Map::Map() : movementSpeed(4.f), mapScale(4.f)
 {

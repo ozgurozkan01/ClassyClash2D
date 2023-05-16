@@ -23,6 +23,7 @@ void GameManager::CreateGameWindow()
 void GameManager::Play()
 {
     map->Move();
+    player->DetermineViewDirection(map->movementDirection.x);
 }
 
 int GameManager::GetFps() const

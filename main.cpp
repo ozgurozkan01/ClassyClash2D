@@ -20,6 +20,6 @@ int main() {
 
     gameManager->ArrangmentsAfterGameFinish();
     delete gameManager;
-    
+
     return 0;
 }

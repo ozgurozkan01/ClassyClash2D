@@ -14,6 +14,7 @@ private:
     Vector2 playerPosition;
     Rectangle source;
     Rectangle dest;
+    float leftOrRightDirection;
 public:
 
     Player();
@@ -21,6 +22,7 @@ public:
     void LoadPlayerTexture();
     void SetPlayerPosition();
     void DrawPlayer();
+    void DetermineViewDirection(float movementDirectionX);
     Rectangle SetDest();
     Rectangle SetSource();
     Texture2D GetPlayerTexture();
