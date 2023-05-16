@@ -7,6 +7,7 @@
 #include "raylib.h"
 
 class Map;
+class Player;
 
 class GameManager {
 
@@ -16,14 +17,17 @@ private:
 
     int fps;
 
+public:
     // CLASSES
     Map* map;
+    Player* player;
 
-public:
     static const int windowHeight = 384.f;
     static const int windowWidth = 384.f;
     GameManager();
 
+    void ArrangmentsBeforeGameStart();
+    void ArrangmentsAfterGameFinish();
     void CreateGameWindow();
     void LoadGameObjectTextures();
     void UnloadGameObjectTextures();

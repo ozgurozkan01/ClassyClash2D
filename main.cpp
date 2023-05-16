@@ -1,12 +1,11 @@
 #include "GameManager.h"
+#include "Player.h"
 #include "raylib.h"
 int main() {
 
     GameManager* gameManager = new GameManager;
 
-    gameManager->CreateGameWindow();
-    SetTargetFPS(gameManager->GetFps());
-    gameManager->LoadGameObjectTextures();
+    gameManager->ArrangmentsBeforeGameStart();
 
     while(!WindowShouldClose())
     {
@@ -18,8 +17,9 @@ int main() {
         gameManager->DrawGameObjects();
         EndDrawing();
     }
-    gameManager->UnloadGameObjectTextures();
-    CloseWindow();
+
+    gameManager->ArrangmentsAfterGameFinish();
+
     delete gameManager;
     return 0;
 }
