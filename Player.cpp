@@ -3,16 +3,13 @@
 //
 
 #include "Player.h"
-#include "Map.h"
-#include "GameManager.h"
 #include <iostream>
 
-Player::Player()
+Player::Player() : timeLimitBetweenTwoTexture(1.f / 12.f), maxTextureAmount(6.f)
 {
-    timeLimitBetweenTwoTexture = 1.f / 12.f;
-    maxTextureAmount = 6;
     timeCounterBetweenTextures = 0.f;
     currentTexture = 0;
+    leftOrRightDirection = 1.f;
 }
 
 void Player::LoadPlayerTexture()
@@ -22,10 +19,10 @@ void Player::LoadPlayerTexture()
     runningTexture = LoadTexture("characters/knight_run_spritesheet.png");
 }
 
-void Player::SetPlayerPosition()
+void Player::SetPlayerPosition(int windowWidth, int windowHeight)
 {
-    playerPosition = {((float)GameManager::windowWidth / 2) - (4.0f * (0.5f * (float)playerTexture.width / 6.f)),
-                      ((float)GameManager::windowHeight / 2) - (4.f * (0.5f * (float)playerTexture.height))};
+    playerPosition = {((float)windowWidth / 2) - (4.0f * (0.5f * (float)playerTexture.width / 6.f)),
+                      ((float)windowHeight / 2) - (4.f * (0.5f * (float)playerTexture.height))};
 }
 
 void Player::DrawPlayer()

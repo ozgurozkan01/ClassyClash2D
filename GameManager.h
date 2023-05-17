@@ -22,17 +22,17 @@ public:
     Map* map;
     Player* player;
 
-    static const int windowHeight = 384.f;
-    static const int windowWidth = 384.f;
+    const int windowHeight = 384.f;
+    const int windowWidth = 384.f;
     GameManager();
 
     void ArrangmentsBeforeGameStart();
-    void ArrangmentsAfterGameFinish();
+    void ArrangmentsAfterGameFinish() const;
     void CreateGameWindow();
-    void LoadGameObjectTextures();
-    void UnloadGameObjectTextures();
-    void DrawGameObjects();
-    void Play();
+    void LoadGameObjectTextures() const;
+    void UnloadGameObjectTextures()const ;
+    void DrawGameObjects() const;
+    void Play() const;
     int GetFps() const;
 };
 

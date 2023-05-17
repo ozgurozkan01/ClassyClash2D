@@ -20,7 +20,7 @@ void GameManager::CreateGameWindow()
     InitWindow(windowWidth, windowHeight, gameName);
 }
 
-void GameManager::Play()
+void GameManager::Play() const
 {
     map->Move();
     player->DeterminePlayerTexture(map->movementDirection);
@@ -33,19 +33,19 @@ int GameManager::GetFps() const
     return fps;
 }
 
-void GameManager::LoadGameObjectTextures()
+void GameManager::LoadGameObjectTextures() const
 {
     map->LoadMapTexture();
     player->LoadPlayerTexture();
 }
 
-void GameManager::UnloadGameObjectTextures()
+void GameManager::UnloadGameObjectTextures() const
 {
     UnloadTexture(map->GetMapTexture());
     UnloadTexture(player->GetPlayerTexture());
 }
 
-void GameManager::DrawGameObjects()
+void GameManager::DrawGameObjects() const
 {
     map->DrawMap();
     player->DrawPlayer();
@@ -56,10 +56,10 @@ void GameManager::ArrangmentsBeforeGameStart()
     CreateGameWindow();
     SetTargetFPS(GetFps());
     LoadGameObjectTextures();
-    player->SetPlayerPosition();
+    player->SetPlayerPosition(windowWidth, windowHeight);
 }
 
-void GameManager::ArrangmentsAfterGameFinish()
+void GameManager::ArrangmentsAfterGameFinish() const
 {
     UnloadGameObjectTextures();
     CloseWindow();
