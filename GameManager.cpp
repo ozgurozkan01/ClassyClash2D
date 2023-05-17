@@ -64,3 +64,11 @@ void GameManager::ArrangmentsAfterGameFinish() const
     UnloadGameObjectTextures();
     CloseWindow();
 }
+
+void GameManager::Tick()
+{
+
+    Play();
+
+    DrawGameObjects();
+}

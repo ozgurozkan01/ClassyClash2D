@@ -26,6 +26,8 @@ public:
     const int windowWidth = 384.f;
     GameManager();
 
+    void Tick();
+
     void ArrangmentsBeforeGameStart();
     void ArrangmentsAfterGameFinish() const;
     void CreateGameWindow();

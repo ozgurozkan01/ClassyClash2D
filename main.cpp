@@ -12,9 +12,8 @@ int main() {
         BeginDrawing();
         ClearBackground(WHITE);
 
-        gameManager->Play();
+        gameManager->Tick();
 
-        gameManager->DrawGameObjects();
         EndDrawing();
     }
 
