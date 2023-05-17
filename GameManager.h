@@ -14,6 +14,8 @@ class GameManager {
 private:
 
     const char* gameName;
+    const int windowHeight;
+    const int windowWidth;
 
     int fps;
 
@@ -22,8 +24,6 @@ public:
     Map* map;
     Player* player;
 
-    const int windowHeight = 384.f;
-    const int windowWidth = 384.f;
     GameManager();
 
     void Tick(float deltaTime) const;

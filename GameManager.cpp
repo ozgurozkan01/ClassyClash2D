@@ -6,7 +6,7 @@
 #include "Map.h"
 #include "Player.h"
 
-GameManager::GameManager()
+GameManager::GameManager() : windowWidth(384), windowHeight(384)
 {
     gameName = "Classy Clash 2D";
     fps = 60;
