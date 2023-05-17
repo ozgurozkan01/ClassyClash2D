@@ -3,17 +3,23 @@
 //
 
 #include "Player.h"
-#include "GameManager.h"
 #include "Map.h"
+#include "GameManager.h"
 #include <iostream>
 
 Player::Player()
 {
+    timeLimitBetweenTwoTexture = 1.f / 12.f;
+    maxTextureAmount = 6;
+    timeCounterBetweenTextures = 0.f;
+    currentTexture = 0;
 }
 
 void Player::LoadPlayerTexture()
 {
     playerTexture = LoadTexture("characters/knight_idle_spritesheet.png");
+    idleTexture = LoadTexture("characters/knight_idle_spritesheet.png");
+    runningTexture = LoadTexture("characters/knight_run_spritesheet.png");
 }
 
 void Player::SetPlayerPosition()
@@ -38,11 +44,38 @@ Rectangle Player::SetDest()
 }
 
 Rectangle Player::SetSource() {
-    source = {0.f, 0.f, leftOrRightDirection * (float)playerTexture.width / 6.f, (float)playerTexture.height};
+    source = {currentTexture * (float)playerTexture.width / 6.f, 0.f, leftOrRightDirection * (float)playerTexture.width / 6.f, (float)playerTexture.height};
     return source;
 }
 
 void Player::DetermineViewDirection(float movementDirectionX)
 {
     movementDirectionX < 0.f ? leftOrRightDirection = -1.f : leftOrRightDirection = 1.f;
+}
+
+void Player::AnimateTexture()
+{
+    timeCounterBetweenTextures += GetFrameTime();
+
+    if (timeCounterBetweenTextures >= timeLimitBetweenTwoTexture)
+    {
+        timeCounterBetweenTextures = 0;
+        currentTexture++;
+
+        if (currentTexture >= maxTextureAmount)
+        {
+            currentTexture = 0;
+        }
+    }
+}
+
+void Player::DeterminePlayerTexture(Vector2 movementDirection)
+{
+    if (movementDirection.x == 0 && movementDirection.y == 0)
+    {
+        playerTexture = idleTexture;
+        return;
+    }
+
+    playerTexture = runningTexture;
 }

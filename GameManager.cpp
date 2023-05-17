@@ -23,7 +23,9 @@ void GameManager::CreateGameWindow()
 void GameManager::Play()
 {
     map->Move();
+    player->DeterminePlayerTexture(map->movementDirection);
     player->DetermineViewDirection(map->movementDirection.x);
+    player->AnimateTexture();
 }
 
 int GameManager::GetFps() const
