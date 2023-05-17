@@ -6,22 +6,16 @@
 
 Player::Player() : timeLimitBetweenTwoTexture(1.f / 12.f), maxTextureAmount(6.f)
 {
-    timeCounterBetweenTextures = 0.f;
-    currentTexture = 0;
-    leftOrRightDirection = 1.f;
-}
-
-void Player::LoadPlayerTexture()
-{
     playerTexture = LoadTexture("characters/knight_idle_spritesheet.png");
     idleTexture = LoadTexture("characters/knight_idle_spritesheet.png");
     runningTexture = LoadTexture("characters/knight_run_spritesheet.png");
-}
 
-void Player::SetTextureDimensions()
-{
     textureWidth = playerTexture.width / maxTextureAmount;
     textureHeight = playerTexture.height;
+
+    timeCounterBetweenTextures = 0.f;
+    currentTexture = 0;
+    leftOrRightDirection = 1.f;
 }
 
 void Player::SetPlayerPosition(int windowWidth, int windowHeight)

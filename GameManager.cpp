@@ -11,19 +11,15 @@ GameManager::GameManager()
     gameName = "Classy Clash 2D";
     fps = 60;
 
+    SetTargetFPS(fps);
+    InitWindow(windowWidth, windowHeight, gameName);
+
     map = new Map();
     player = new Player();
 }
 
 void GameManager::ArrangmentsBeforeGameStart()
 {
-    InitWindow(windowWidth, windowHeight, gameName);
-    SetTargetFPS(fps);
-
-    map->LoadMapTexture();
-
-    player->LoadPlayerTexture();
-    player->SetTextureDimensions();
     player->SetPlayerPosition(windowWidth, windowHeight);
 }
 

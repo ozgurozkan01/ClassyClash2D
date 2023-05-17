@@ -7,12 +7,8 @@
 
 Map::Map() : movementSpeed(4.f), mapScale(4.f)
 {
-    mapPosition = {0.f, 0.f};
-}
-
-void Map::LoadMapTexture()
-{
     mapTexture = LoadTexture("./nature_tileset/WorldMap.png");
+    mapPosition = {0.f, 0.f};
 }
 
 void Map::DrawMap()

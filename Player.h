@@ -13,6 +13,7 @@ private:
     Texture2D idleTexture;
     Texture2D runningTexture;
     Texture2D playerTexture;
+
     Vector2 playerPosition{};
     Rectangle source{};
     Rectangle dest{};
@@ -30,12 +31,10 @@ public:
 
     Player();
 
-    void LoadPlayerTexture();
     void SetPlayerPosition(int windowWidth, int windowHeight);
     void DrawPlayer();
     void SetViewDirection(float movementDirectionX);
     void AnimateTexture(float deltaTime);
-    void SetTextureDimensions();
     Rectangle SetDest();
     Rectangle SetSource();
     Texture2D GetPlayerTexture();
