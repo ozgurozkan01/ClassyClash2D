@@ -50,9 +50,9 @@ void Player::DetermineViewDirection(float movementDirectionX)
     movementDirectionX < 0.f ? leftOrRightDirection = -1.f : leftOrRightDirection = 1.f;
 }
 
-void Player::AnimateTexture()
+void Player::AnimateTexture(float deltaTime)
 {
-    timeCounterBetweenTextures += GetFrameTime();
+    timeCounterBetweenTextures += deltaTime;
 
     if (timeCounterBetweenTextures >= timeLimitBetweenTwoTexture)
     {

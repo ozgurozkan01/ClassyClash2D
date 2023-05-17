@@ -32,7 +32,7 @@ public:
     void SetPlayerPosition(int windowWidth, int windowHeight);
     void DrawPlayer();
     void DetermineViewDirection(float movementDirectionX);
-    void AnimateTexture();
+    void AnimateTexture(float deltaTime);
     Rectangle SetDest();
     Rectangle SetSource();
     Texture2D GetPlayerTexture();

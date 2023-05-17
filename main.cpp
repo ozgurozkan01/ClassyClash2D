@@ -12,7 +12,7 @@ int main() {
         BeginDrawing();
         ClearBackground(WHITE);
 
-        gameManager->Tick();
+        gameManager->Tick(GetFrameTime());
 
         EndDrawing();
     }

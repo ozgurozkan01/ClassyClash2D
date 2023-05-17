@@ -26,7 +26,7 @@ public:
     const int windowWidth = 384.f;
     GameManager();
 
-    void Tick();
+    void Tick(float deltaTime);
 
     void ArrangmentsBeforeGameStart();
     void ArrangmentsAfterGameFinish() const;
@@ -34,7 +34,6 @@ public:
     void LoadGameObjectTextures() const;
     void UnloadGameObjectTextures()const ;
     void DrawGameObjects() const;
-    void Play() const;
     int GetFps() const;
 };
 

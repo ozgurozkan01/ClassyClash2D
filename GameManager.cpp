@@ -20,14 +20,6 @@ void GameManager::CreateGameWindow()
     InitWindow(windowWidth, windowHeight, gameName);
 }
 
-void GameManager::Play() const
-{
-    map->Move();
-    player->DeterminePlayerTexture(map->movementDirection);
-    player->DetermineViewDirection(map->movementDirection.x);
-    player->AnimateTexture();
-}
-
 int GameManager::GetFps() const
 {
     return fps;
@@ -65,10 +57,12 @@ void GameManager::ArrangmentsAfterGameFinish() const
     CloseWindow();
 }
 
-void GameManager::Tick()
+void GameManager::Tick(float deltaTime)
 {
 
-    Play();
-
+    map->Move();
+    player->DeterminePlayerTexture(map->movementDirection);
+    player->DetermineViewDirection(map->movementDirection.x);
+    player->AnimateTexture(deltaTime);
     DrawGameObjects();
 }
