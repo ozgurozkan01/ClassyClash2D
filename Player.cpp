@@ -50,7 +50,7 @@ Rectangle Player::SetSource() {
     return source;
 }
 
-void Player::DetermineViewDirection(float movementDirectionX)
+void Player::SetViewDirection(float movementDirectionX)
 {
     movementDirectionX < 0.f ? leftOrRightDirection = -1.f : leftOrRightDirection = 1.f;
 }
@@ -71,7 +71,7 @@ void Player::AnimateTexture(float deltaTime)
     }
 }
 
-void Player::DeterminePlayerTexture(Vector2 movementDirection)
+void Player::SetPlayerTexture(Vector2 movementDirection)
 {
     if (movementDirection.x == 0 && movementDirection.y == 0)
     {

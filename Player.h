@@ -33,13 +33,13 @@ public:
     void LoadPlayerTexture();
     void SetPlayerPosition(int windowWidth, int windowHeight);
     void DrawPlayer();
-    void DetermineViewDirection(float movementDirectionX);
+    void SetViewDirection(float movementDirectionX);
     void AnimateTexture(float deltaTime);
     void SetTextureDimensions();
     Rectangle SetDest();
     Rectangle SetSource();
     Texture2D GetPlayerTexture();
-    void DeterminePlayerTexture(Vector2 movementDirection);
+    void SetPlayerTexture(Vector2 movementDirection);
 };
 
 

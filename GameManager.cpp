@@ -33,8 +33,8 @@ void GameManager::Tick(float deltaTime)
     map->Move();
     map->DrawMap();
 
-    player->DeterminePlayerTexture(map->movementDirection);
-    player->DetermineViewDirection(map->movementDirection.x);
+    player->SetPlayerTexture(map->movementDirection);
+    player->SetViewDirection(map->movementDirection.x);
     player->AnimateTexture(deltaTime);
     player->DrawPlayer();
 }
