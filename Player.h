@@ -10,10 +10,9 @@
 class Player {
 private:
 
-    Texture2D idleTexture{};
-    Texture2D runningTexture{};
-
-    Texture2D playerTexture{};
+    Texture2D idleTexture;
+    Texture2D runningTexture;
+    Texture2D playerTexture;
     Vector2 playerPosition{};
     Rectangle source{};
     Rectangle dest{};
@@ -24,6 +23,9 @@ private:
     float timeCounterBetweenTextures;
     float currentTexture;
 
+    float textureHeight;
+    float textureWidth;
+
 public:
 
     Player();
@@ -33,6 +35,7 @@ public:
     void DrawPlayer();
     void DetermineViewDirection(float movementDirectionX);
     void AnimateTexture(float deltaTime);
+    void SetTextureDimensions();
     Rectangle SetDest();
     Rectangle SetSource();
     Texture2D GetPlayerTexture();

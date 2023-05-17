@@ -11,12 +11,12 @@ class Map {
 
 private:
 
-    Texture2D mapTexture;
-    Vector2 mapPosition;
+    Texture2D mapTexture{};
+    Vector2 mapPosition{};
     const float movementSpeed;
     const float mapScale;
 public:
-    Vector2 movementDirection;
+    Vector2 movementDirection{};
 
     Map();
     void LoadMapTexture();

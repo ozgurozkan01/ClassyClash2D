@@ -3,7 +3,6 @@
 //
 
 #include "Player.h"
-#include <iostream>
 
 Player::Player() : timeLimitBetweenTwoTexture(1.f / 12.f), maxTextureAmount(6.f)
 {
@@ -19,10 +18,16 @@ void Player::LoadPlayerTexture()
     runningTexture = LoadTexture("characters/knight_run_spritesheet.png");
 }
 
+void Player::SetTextureDimensions()
+{
+    textureWidth = playerTexture.width / maxTextureAmount;
+    textureHeight = playerTexture.height;
+}
+
 void Player::SetPlayerPosition(int windowWidth, int windowHeight)
 {
-    playerPosition = {((float)windowWidth / 2) - (4.0f * (0.5f * (float)playerTexture.width / 6.f)),
-                      ((float)windowHeight / 2) - (4.f * (0.5f * (float)playerTexture.height))};
+    playerPosition = {((float)windowWidth / 2) - (4.0f * (0.5f * textureWidth)),
+                      ((float)windowHeight / 2) - (4.f * (0.5f * textureHeight))};
 }
 
 void Player::DrawPlayer()
@@ -36,12 +41,12 @@ Texture2D Player::GetPlayerTexture() {
 
 Rectangle Player::SetDest()
 {
-    dest = {playerPosition.x, playerPosition.y, 4.f * (float)playerTexture.width / 6.f, 4.f * (float)playerTexture.height};
+    dest = {playerPosition.x, playerPosition.y, 4.f * textureWidth, 4.f * textureHeight};
     return dest;
 }
 
 Rectangle Player::SetSource() {
-    source = {currentTexture * (float)playerTexture.width / 6.f, 0.f, leftOrRightDirection * (float)playerTexture.width / 6.f, (float)playerTexture.height};
+    source = {currentTexture * textureWidth, 0.f, leftOrRightDirection * textureWidth, textureHeight};
     return source;
 }
 

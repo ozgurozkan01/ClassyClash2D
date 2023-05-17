@@ -30,11 +30,6 @@ public:
 
     void ArrangmentsBeforeGameStart();
     void ArrangmentsAfterGameFinish() const;
-    void CreateGameWindow();
-    void LoadGameObjectTextures() const;
-    void UnloadGameObjectTextures()const ;
-    void DrawGameObjects() const;
-    int GetFps() const;
 };
 
 

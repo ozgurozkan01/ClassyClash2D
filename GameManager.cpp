@@ -15,54 +15,33 @@ GameManager::GameManager()
     player = new Player();
 }
 
-void GameManager::CreateGameWindow()
-{
-    InitWindow(windowWidth, windowHeight, gameName);
-}
-
-int GameManager::GetFps() const
-{
-    return fps;
-}
-
-void GameManager::LoadGameObjectTextures() const
-{
-    map->LoadMapTexture();
-    player->LoadPlayerTexture();
-}
-
-void GameManager::UnloadGameObjectTextures() const
-{
-    UnloadTexture(map->GetMapTexture());
-    UnloadTexture(player->GetPlayerTexture());
-}
-
-void GameManager::DrawGameObjects() const
-{
-    map->DrawMap();
-    player->DrawPlayer();
-}
-
 void GameManager::ArrangmentsBeforeGameStart()
 {
-    CreateGameWindow();
-    SetTargetFPS(GetFps());
-    LoadGameObjectTextures();
-    player->SetPlayerPosition(windowWidth, windowHeight);
-}
+    InitWindow(windowWidth, windowHeight, gameName);
+    SetTargetFPS(fps);
 
-void GameManager::ArrangmentsAfterGameFinish() const
-{
-    UnloadGameObjectTextures();
-    CloseWindow();
+    map->LoadMapTexture();
+
+    player->LoadPlayerTexture();
+    player->SetTextureDimensions();
+    player->SetPlayerPosition(windowWidth, windowHeight);
 }
 
 void GameManager::Tick(float deltaTime)
 {
 
     map->Move();
+    map->DrawMap();
+
     player->DeterminePlayerTexture(map->movementDirection);
     player->DetermineViewDirection(map->movementDirection.x);
     player->AnimateTexture(deltaTime);
-    DrawGameObjects();
+    player->DrawPlayer();
+}
+
+void GameManager::ArrangmentsAfterGameFinish() const
+{
+    UnloadTexture(map->GetMapTexture());
+    UnloadTexture(player->GetPlayerTexture());
+    CloseWindow();
 }
