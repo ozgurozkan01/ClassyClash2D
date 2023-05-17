@@ -18,12 +18,12 @@ GameManager::GameManager()
     player = new Player();
 }
 
-void GameManager::ArrangmentsBeforeGameStart()
+void GameManager::ArrangmentsBeforeGameStart() const
 {
     player->SetPlayerPosition(windowWidth, windowHeight);
 }
 
-void GameManager::Tick(float deltaTime)
+void GameManager::Tick(float deltaTime) const
 {
 
     map->Move();

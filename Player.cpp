@@ -10,8 +10,8 @@ Player::Player() : timeLimitBetweenTwoTexture(1.f / 12.f), maxTextureAmount(6.f)
     idleTexture = LoadTexture("characters/knight_idle_spritesheet.png");
     runningTexture = LoadTexture("characters/knight_run_spritesheet.png");
 
-    textureWidth = playerTexture.width / maxTextureAmount;
-    textureHeight = playerTexture.height;
+    textureWidth = (float)playerTexture.width / maxTextureAmount;
+    textureHeight = (float)playerTexture.height;
 
     timeCounterBetweenTextures = 0.f;
     currentTexture = 0;

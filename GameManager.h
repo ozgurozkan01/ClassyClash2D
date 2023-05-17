@@ -26,9 +26,9 @@ public:
     const int windowWidth = 384.f;
     GameManager();
 
-    void Tick(float deltaTime);
+    void Tick(float deltaTime) const;
 
-    void ArrangmentsBeforeGameStart();
+    void ArrangmentsBeforeGameStart() const;
     void ArrangmentsAfterGameFinish() const;
 };
 

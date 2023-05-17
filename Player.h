@@ -10,9 +10,9 @@
 class Player {
 private:
 
-    Texture2D idleTexture;
-    Texture2D runningTexture;
-    Texture2D playerTexture;
+    Texture2D idleTexture{};
+    Texture2D runningTexture{};
+    Texture2D playerTexture{};
 
     Vector2 playerPosition{};
     Rectangle source{};
