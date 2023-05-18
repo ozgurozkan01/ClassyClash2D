@@ -21,22 +21,21 @@ private:
 
     const float timeLimitBetweenTwoTexture;
     const float maxTextureAmount;
-    float timeCounterBetweenTextures;
-    float currentTexture;
+    float timeCounterBetweenTextures{};
+    float currentTexture{};
 
     float textureHeight;
     float textureWidth;
 
     const float movementSpeed;
-    Vector2 movementDirection;
-    Vector2 positionOnMap;
-    Vector2 lastPositionFrameOnMap;
+    Vector2 movementDirection{};
+    Vector2 positionOnMap{};
+    Vector2 lastPositionFrameOnMap{};
 
 public:
 
-    Player();
+    Player(float windowWidth, float windowHeight);
 
-    void SetPlayerPosition(int windowWidth, int windowHeight);
     void DrawPlayer();
     void SetViewDirection();
     void AnimateTexture(float deltaTime);

@@ -25,11 +25,8 @@ public:
     Player* player;
 
     GameManager();
-
+    ~GameManager();
     void Tick(float deltaTime) const;
-
-    void ArrangmentsBeforeGameStart() const;
-    void ArrangmentsAfterGameFinish() const;
 };
 
 

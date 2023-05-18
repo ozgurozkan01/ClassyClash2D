@@ -11,7 +11,7 @@ class Map {
 
 private:
 
-    Texture2D mapTexture;
+    Texture2D mapTexture{};
     Vector2 position{};
     const float mapScale;
 public:

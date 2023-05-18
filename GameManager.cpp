@@ -15,14 +15,9 @@ GameManager::GameManager() : windowWidth(384), windowHeight(384)
     SetTargetFPS(fps);
     InitWindow(windowWidth, windowHeight, gameName);
 
-    player = new Player();
+    player = new Player(static_cast<float>(windowWidth), static_cast<float>(windowHeight));
     map = new Map();
 
-}
-
-void GameManager::ArrangmentsBeforeGameStart() const
-{
-    player->SetPlayerPosition(windowWidth, windowHeight);
 }
 
 void GameManager::Tick(float deltaTime) const
@@ -38,19 +33,22 @@ void GameManager::Tick(float deltaTime) const
     player->AnimateTexture(deltaTime);
     player->DrawPlayer();
 
-    if (player->CanMoveOnMap((float)windowWidth,
-                             (float)windowHeight,
-                             (float)map->GetMapTexture().width,
-                             (float)map->GetMapTexture().height,
+    if (player->CanMoveOnMap(static_cast<float>(windowWidth),
+                             static_cast<float>(windowHeight),
+                             static_cast<float>(map->GetMapTexture().width),
+                             static_cast<float>(map->GetMapTexture().height),
                              map->GetMapScale()))
     {
         player->UndoMovement();
     }
 }
 
-void GameManager::ArrangmentsAfterGameFinish() const
+GameManager::~GameManager()
 {
     UnloadTexture(map->GetMapTexture());
     UnloadTexture(player->GetPlayerTexture());
     CloseWindow();
+
+    delete map;
+    delete player;
 }

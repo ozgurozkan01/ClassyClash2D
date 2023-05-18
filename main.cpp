@@ -5,8 +5,6 @@ int main() {
 
     GameManager* gameManager = new GameManager;
 
-    gameManager->ArrangmentsBeforeGameStart();
-
     while(!WindowShouldClose())
     {
         BeginDrawing();
@@ -17,7 +15,6 @@ int main() {
         EndDrawing();
     }
 
-    gameManager->ArrangmentsAfterGameFinish();
     delete gameManager;
 
     return 0;

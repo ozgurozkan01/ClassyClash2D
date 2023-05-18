@@ -4,30 +4,19 @@
 
 #include "Player.h"
 #include "raymath.h"
-#include <iostream>
 
-Player::Player() : movementSpeed(4.f), timeLimitBetweenTwoTexture(1.f / 12.f), maxTextureAmount(6.f)
+Player::Player(float windowWidth, float windowHeight) : movementSpeed(4.f), timeLimitBetweenTwoTexture(1.f / 12.f), maxTextureAmount(6.f)
 {
     playerTexture = LoadTexture("characters/knight_idle_spritesheet.png");
     idleTexture = LoadTexture("characters/knight_idle_spritesheet.png");
     runningTexture = LoadTexture("characters/knight_run_spritesheet.png");
 
-    textureWidth = (float)playerTexture.width / maxTextureAmount;
-    textureHeight = (float)playerTexture.height;
+    playerPosition = {(static_cast<float>(windowWidth)/ 2) - (4.0f * (0.5f * textureWidth)),
+                      (static_cast<float>(windowHeight) / 2) - (4.f * (0.5f * textureHeight))};
 
-    timeCounterBetweenTextures = 0.f;
-    currentTexture = 0;
+    textureWidth = static_cast<float>(playerTexture.width) / maxTextureAmount;
+    textureHeight = static_cast<float>(playerTexture.height);
     leftOrRightDirection = 1.f;
-
-    lastPositionFrameOnMap = {0.f, 0.f};
-    positionOnMap = {0.f, 0.f};
-    movementDirection = {0.f, 0.f};
-}
-
-void Player::SetPlayerPosition(int windowWidth, int windowHeight)
-{
-    playerPosition = {((float)windowWidth / 2) - (4.0f * (0.5f * textureWidth)),
-                      ((float)windowHeight / 2) - (4.f * (0.5f * textureHeight))};
 }
 
 void Player::DrawPlayer()
