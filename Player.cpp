@@ -119,8 +119,3 @@ bool Player::CanMoveOnMap(float windowWidth, float windowHeight, float mapWidth,
            positionOnMap.x + windowWidth > mapWidth * mapScale ||
            positionOnMap.y + windowHeight > mapHeight * mapScale;
 }
-
-int Player::sum() const
-{
-    return 0;
-}
