@@ -29,7 +29,9 @@ private:
 
     const float movementSpeed;
     Vector2 movementDirection;
-    Vector2 mapPosition;
+    Vector2 positionOnMap;
+    Vector2 lastPositionFrameOnMap;
+
 public:
 
     Player();
@@ -39,11 +41,14 @@ public:
     void SetViewDirection();
     void AnimateTexture(float deltaTime);
     void Move();
+    bool CanMoveOnMap(float windowWidth, float windowHeight, float mapWidth, float mapHeight, float mapScale) const;
     Vector2 GetPosOnMap();
     Rectangle SetDest();
     Rectangle SetSource();
     Texture2D GetPlayerTexture();
     void SetPlayerTexture();
+    void SetLastPositionFrame();
+    void UndoMovement();
 };
 
 

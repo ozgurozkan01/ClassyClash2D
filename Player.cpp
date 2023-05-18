@@ -4,6 +4,7 @@
 
 #include "Player.h"
 #include "raymath.h"
+#include <iostream>
 
 Player::Player() : movementSpeed(4.f), timeLimitBetweenTwoTexture(1.f / 12.f), maxTextureAmount(6.f)
 {
@@ -17,6 +18,10 @@ Player::Player() : movementSpeed(4.f), timeLimitBetweenTwoTexture(1.f / 12.f), m
     timeCounterBetweenTextures = 0.f;
     currentTexture = 0;
     leftOrRightDirection = 1.f;
+
+    lastPositionFrameOnMap = {0.f, 0.f};
+    positionOnMap = {0.f, 0.f};
+    movementDirection = {0.f, 0.f};
 }
 
 void Player::SetPlayerPosition(int windowWidth, int windowHeight)
@@ -87,10 +92,29 @@ void Player::Move()
 
     if (Vector2Length(movementDirection) != 0)
     {
-        mapPosition = Vector2Add(mapPosition, Vector2Scale(Vector2Normalize(movementDirection), movementSpeed));
+        positionOnMap = Vector2Add(positionOnMap, Vector2Scale(Vector2Normalize(movementDirection), movementSpeed));
     }
 }
 
 Vector2 Player::GetPosOnMap() {
-    return mapPosition;
+    return positionOnMap;
+}
+
+void Player::SetLastPositionFrame()
+{
+    lastPositionFrameOnMap = positionOnMap;
+    std::cout << lastPositionFrameOnMap.x << "  " << lastPositionFrameOnMap.y << std::endl;
+}
+
+void Player::UndoMovement()
+{
+    positionOnMap = lastPositionFrameOnMap;
+}
+
+bool Player::CanMoveOnMap(float windowWidth, float windowHeight, float mapWidth, float mapHeight, float mapScale) const
+{
+    return positionOnMap.x < 0 ||
+           positionOnMap.y < 0 ||
+           positionOnMap.x + windowWidth > mapWidth * mapScale ||
+           positionOnMap.y + windowHeight > mapHeight * mapScale;
 }

@@ -15,13 +15,13 @@ private:
     Vector2 position{};
     const float mapScale;
 public:
-    Vector2 movementDirection{};
 
     Map();
 
     void DrawMap();
     Texture2D GetMapTexture();
     void Move(Vector2 position);
+    float GetMapScale() const;
 };
 
 

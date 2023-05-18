@@ -5,6 +5,7 @@
 #include "GameManager.h"
 #include "Map.h"
 #include "Player.h"
+#include <iostream>
 
 GameManager::GameManager() : windowWidth(384), windowHeight(384)
 {
@@ -14,8 +15,9 @@ GameManager::GameManager() : windowWidth(384), windowHeight(384)
     SetTargetFPS(fps);
     InitWindow(windowWidth, windowHeight, gameName);
 
-    map = new Map();
     player = new Player();
+    map = new Map();
+
 }
 
 void GameManager::ArrangmentsBeforeGameStart() const
@@ -25,18 +27,24 @@ void GameManager::ArrangmentsBeforeGameStart() const
 
 void GameManager::Tick(float deltaTime) const
 {
-
-//  MAP
-
+    player->SetLastPositionFrame();
     player->Move();
-    map->Move(player->GetPosOnMap());
-    map->DrawMap();
-
-//  PLAYER
     player->SetPlayerTexture();
     player->SetViewDirection();
     player->AnimateTexture(deltaTime);
     player->DrawPlayer();
+
+    if (player->CanMoveOnMap(windowWidth,
+                             windowHeight,
+                             map->GetMapTexture().width,
+                             map->GetMapTexture().height,
+                             map->GetMapScale()))
+    {
+        player->UndoMovement();
+    }
+    
+    map->Move(player->GetPosOnMap());
+    map->DrawMap();
 }
 
 void GameManager::ArrangmentsAfterGameFinish() const
