@@ -102,12 +102,13 @@ Vector2 Player::GetPosOnMap() {
 
 void Player::SetLastPositionFrame()
 {
+    // set last position frame in moveable area
     lastPositionFrameOnMap = positionOnMap;
-    std::cout << lastPositionFrameOnMap.x << "  " << lastPositionFrameOnMap.y << std::endl;
 }
 
 void Player::UndoMovement()
 {
+    // set last position frame as current position which is on border
     positionOnMap = lastPositionFrameOnMap;
 }
 
@@ -117,4 +118,9 @@ bool Player::CanMoveOnMap(float windowWidth, float windowHeight, float mapWidth,
            positionOnMap.y < 0 ||
            positionOnMap.x + windowWidth > mapWidth * mapScale ||
            positionOnMap.y + windowHeight > mapHeight * mapScale;
+}
+
+int Player::sum() const
+{
+    return 0;
 }

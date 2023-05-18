@@ -41,7 +41,8 @@ public:
     void SetViewDirection();
     void AnimateTexture(float deltaTime);
     void Move();
-    bool CanMoveOnMap(float windowWidth, float windowHeight, float mapWidth, float mapHeight, float mapScale) const;
+    [[nodiscard]] bool CanMoveOnMap(float windowWidth, float windowHeight, float mapWidth, float mapHeight, float mapScale) const;
+    [[nodiscard]] int sum() const;
     Vector2 GetPosOnMap();
     Rectangle SetDest();
     Rectangle SetSource();

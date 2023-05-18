@@ -27,6 +27,10 @@ void GameManager::ArrangmentsBeforeGameStart() const
 
 void GameManager::Tick(float deltaTime) const
 {
+
+    map->Move(player->GetPosOnMap());
+    map->DrawMap();
+
     player->SetLastPositionFrame();
     player->Move();
     player->SetPlayerTexture();
@@ -34,17 +38,14 @@ void GameManager::Tick(float deltaTime) const
     player->AnimateTexture(deltaTime);
     player->DrawPlayer();
 
-    if (player->CanMoveOnMap(windowWidth,
-                             windowHeight,
-                             map->GetMapTexture().width,
-                             map->GetMapTexture().height,
+    if (player->CanMoveOnMap((float)windowWidth,
+                             (float)windowHeight,
+                             (float)map->GetMapTexture().width,
+                             (float)map->GetMapTexture().height,
                              map->GetMapScale()))
     {
         player->UndoMovement();
     }
-    
-    map->Move(player->GetPosOnMap());
-    map->DrawMap();
 }
 
 void GameManager::ArrangmentsAfterGameFinish() const
