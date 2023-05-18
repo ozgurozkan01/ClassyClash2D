@@ -11,9 +11,8 @@ class Map {
 
 private:
 
-    Texture2D mapTexture = LoadTexture("./nature_tileset/WorldMap.png");
-    Vector2 mapPosition{};
-    const float movementSpeed;
+    Texture2D mapTexture;
+    Vector2 position{};
     const float mapScale;
 public:
     Vector2 movementDirection{};
@@ -22,7 +21,7 @@ public:
 
     void DrawMap();
     Texture2D GetMapTexture();
-    void Move();
+    void Move(Vector2 position);
 };
 
 

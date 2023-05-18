@@ -3,8 +3,9 @@
 //
 
 #include "Player.h"
+#include "raymath.h"
 
-Player::Player() : timeLimitBetweenTwoTexture(1.f / 12.f), maxTextureAmount(6.f)
+Player::Player() : movementSpeed(4.f), timeLimitBetweenTwoTexture(1.f / 12.f), maxTextureAmount(6.f)
 {
     playerTexture = LoadTexture("characters/knight_idle_spritesheet.png");
     idleTexture = LoadTexture("characters/knight_idle_spritesheet.png");
@@ -44,9 +45,9 @@ Rectangle Player::SetSource() {
     return source;
 }
 
-void Player::SetViewDirection(float movementDirectionX)
+void Player::SetViewDirection()
 {
-    movementDirectionX < 0.f ? leftOrRightDirection = -1.f : leftOrRightDirection = 1.f;
+    movementDirection.x < 0.f ? leftOrRightDirection = -1.f : leftOrRightDirection = 1.f;
 }
 
 void Player::AnimateTexture(float deltaTime)
@@ -65,7 +66,7 @@ void Player::AnimateTexture(float deltaTime)
     }
 }
 
-void Player::SetPlayerTexture(Vector2 movementDirection)
+void Player::SetPlayerTexture()
 {
     if (movementDirection.x == 0 && movementDirection.y == 0)
     {
@@ -74,4 +75,22 @@ void Player::SetPlayerTexture(Vector2 movementDirection)
     }
 
     playerTexture = runningTexture;
+}
+
+void Player::Move()
+{
+    movementDirection = {0.f, 0.f};
+    if (IsKeyDown(KEY_A)) movementDirection.x -= 1;
+    if (IsKeyDown(KEY_D)) movementDirection.x += 1;
+    if (IsKeyDown(KEY_W)) movementDirection.y -= 1;
+    if (IsKeyDown(KEY_S)) movementDirection.y += 1;
+
+    if (Vector2Length(movementDirection) != 0)
+    {
+        mapPosition = Vector2Add(mapPosition, Vector2Scale(Vector2Normalize(movementDirection), movementSpeed));
+    }
+}
+
+Vector2 Player::GetPosOnMap() {
+    return mapPosition;
 }

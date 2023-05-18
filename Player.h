@@ -27,18 +27,23 @@ private:
     float textureHeight;
     float textureWidth;
 
+    const float movementSpeed;
+    Vector2 movementDirection;
+    Vector2 mapPosition;
 public:
 
     Player();
 
     void SetPlayerPosition(int windowWidth, int windowHeight);
     void DrawPlayer();
-    void SetViewDirection(float movementDirectionX);
+    void SetViewDirection();
     void AnimateTexture(float deltaTime);
+    void Move();
+    Vector2 GetPosOnMap();
     Rectangle SetDest();
     Rectangle SetSource();
     Texture2D GetPlayerTexture();
-    void SetPlayerTexture(Vector2 movementDirection);
+    void SetPlayerTexture();
 };
 
 

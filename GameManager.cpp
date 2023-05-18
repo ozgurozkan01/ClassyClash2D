@@ -26,11 +26,15 @@ void GameManager::ArrangmentsBeforeGameStart() const
 void GameManager::Tick(float deltaTime) const
 {
 
-    map->Move();
+//  MAP
+
+    player->Move();
+    map->Move(player->GetPosOnMap());
     map->DrawMap();
 
-    player->SetPlayerTexture(map->movementDirection);
-    player->SetViewDirection(map->movementDirection.x);
+//  PLAYER
+    player->SetPlayerTexture();
+    player->SetViewDirection();
     player->AnimateTexture(deltaTime);
     player->DrawPlayer();
 }
