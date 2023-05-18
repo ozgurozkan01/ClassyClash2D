@@ -11,12 +11,12 @@ Player::Player(float windowWidth, float windowHeight) : movementSpeed(4.f), time
     idleTexture = LoadTexture("characters/knight_idle_spritesheet.png");
     runningTexture = LoadTexture("characters/knight_run_spritesheet.png");
 
-    playerPosition = {(static_cast<float>(windowWidth)/ 2) - (4.0f * (0.5f * textureWidth)),
-                      (static_cast<float>(windowHeight) / 2) - (4.f * (0.5f * textureHeight))};
-
     textureWidth = static_cast<float>(playerTexture.width) / maxTextureAmount;
     textureHeight = static_cast<float>(playerTexture.height);
     leftOrRightDirection = 1.f;
+
+    playerPosition = {(static_cast<float>(windowWidth)/ 2) - (4.0f * (0.5f * textureWidth)),
+                      (static_cast<float>(windowHeight) / 2) - (4.f * (0.5f * textureHeight))};
 }
 
 void Player::DrawPlayer()
