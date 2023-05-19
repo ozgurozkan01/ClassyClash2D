@@ -1,7 +1,7 @@
 # ninja log v5
-462	672	7061357330372834	ClassyClash2D.exe	14ef3f928060a4f
+227	419	7061379662856633	ClassyClash2D.exe	14ef3f928060a4f
 5	365	7056162442483944	_deps/raylib-build/raylib/CMakeFiles/raylib.dir/rshapes.c.obj	446081116bdd8ff8
-1	21298	7056997432193515	build.ninja	59343b2b75cecc05
+1	21298	7062308954109923	build.ninja	59343b2b75cecc05
 24	1296	7056162451773163	_deps/raylib-build/raylib/CMakeFiles/raylib.dir/rtextures.c.obj	dab8b5dd25b9cfa0
 47	1167	7056162450496286	_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/monitor.c.obj	ad8f4d00b674fb46
 19	181	7056162440617131	_deps/raylib-build/raylib/CMakeFiles/raylib.dir/utils.c.obj	2f61146a659c6cc3
@@ -18,7 +18,7 @@
 58	1259	7056163024958481	_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.obj	60f2d7567dacc411
 19	1158	7056163023890558	_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_thread.c.obj	fd35a12e6d2b13fa
 13	1164	7056163023890558	_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/vulkan.c.obj	68ec898935210f39
-17	462	7061357328313575	CMakeFiles/ClassyClash2D.dir/GameManager.cpp.obj	279c4f670eda5644
+10	442	7061379059975321	CMakeFiles/ClassyClash2D.dir/GameManager.cpp.obj	279c4f670eda5644
 50	1197	7056163024291985	_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_time.c.obj	ad5abdd977199b5f
 30	1199	7056163024361972	_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj	841fb4d75c3fc5a3
 36	1210	7056163024452520	_deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.obj	9f89be770677eab6
@@ -28,9 +28,9 @@
 1883	2060	7056163032973970	_deps/raylib-build/raylib/external/glfw/src/libglfw3.a	44f03d1a1a9e39b0
 2060	2170	7056163034068796	_deps/raylib-build/raylib/libraylib.a	51ed965de7686a86
 5	324	7061357326938469	CMakeFiles/ClassyClash2D.dir/Map.cpp.obj	4d62b83b3b7cb60d
-11	344	7061357327135230	CMakeFiles/ClassyClash2D.dir/Player.cpp.obj	b3c809a6b80dedf5
-5	297	7061379058527274	CMakeFiles/ClassyClash2D.dir/Player.cpp.obj	b3c809a6b80dedf5
-10	442	7061379059975321	CMakeFiles/ClassyClash2D.dir/GameManager.cpp.obj	279c4f670eda5644
-443	704	7061379062527914	ClassyClash2D.exe	14ef3f928060a4f
 5	227	7061379660983714	CMakeFiles/ClassyClash2D.dir/Player.cpp.obj	b3c809a6b80dedf5
-227	419	7061379662856633	ClassyClash2D.exe	14ef3f928060a4f
+11	101	7062309200716699	CMakeFiles/ClassyClash2D.dir/Prop.cpp.obj	3c3d2dbb2b1af8eb
+15	146	7062309201172649	CMakeFiles/ClassyClash2D.dir/main.cpp.obj	88c8ead714b12469
+5	411	7062309203833028	CMakeFiles/ClassyClash2D.dir/Player.cpp.obj	b3c809a6b80dedf5
+22	550	7062309205077577	CMakeFiles/ClassyClash2D.dir/GameManager.cpp.obj	279c4f670eda5644
+550	1021	7062309209879097	ClassyClash2D.exe	e98a7376fcf175b9
