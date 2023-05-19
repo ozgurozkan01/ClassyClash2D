@@ -20,11 +20,15 @@ private:
 
     int fps;
 
-public:
+    Vector2 propPositions[4];
+
     // CLASSES
     Map* map;
     Player* player;
-    Prop* prop;
+    Prop *props[4];
+
+public:
+
 
     GameManager();
     ~GameManager();

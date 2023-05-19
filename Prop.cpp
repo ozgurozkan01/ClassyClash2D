@@ -14,7 +14,6 @@ Prop::Prop(Vector2 pos, Texture2D tex) : position(pos), texture(tex)
 void Prop::DrawProp(Vector2 playerPos)
 {
     Vector2 posOnMap = {Vector2Subtract(position, playerPos)};
-    std::cout << posOnMap.x << "  " << posOnMap.y << std::endl;
     DrawTextureEx(texture, posOnMap, 0.f, scale, WHITE);
 }
 
