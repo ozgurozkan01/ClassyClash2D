@@ -8,6 +8,7 @@
 
 class Map;
 class Player;
+class Prop;
 
 class GameManager {
 
@@ -23,6 +24,7 @@ public:
     // CLASSES
     Map* map;
     Player* player;
+    Prop* prop;
 
     GameManager();
     ~GameManager();

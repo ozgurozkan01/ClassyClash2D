@@ -5,6 +5,7 @@
 #include "GameManager.h"
 #include "Map.h"
 #include "Player.h"
+#include "Prop.h"
 #include <iostream>
 
 GameManager::GameManager() : windowWidth(384), windowHeight(384)
@@ -17,7 +18,7 @@ GameManager::GameManager() : windowWidth(384), windowHeight(384)
 
     player = new Player(static_cast<float>(windowWidth), static_cast<float>(windowHeight));
     map = new Map();
-
+    prop = new Prop(Vector2{0.f, 0.f}, LoadTexture("nature_tileset/Rock.png"));
 }
 
 void GameManager::Tick(float deltaTime) const
@@ -25,6 +26,8 @@ void GameManager::Tick(float deltaTime) const
 
     map->Move(player->GetPosOnMap());
     map->DrawMap();
+
+    prop->DrawProp(player->GetPosOnMap());
 
     player->SetLastPositionFrame();
     player->Move();
@@ -41,6 +44,7 @@ void GameManager::Tick(float deltaTime) const
     {
         player->UndoMovement();
     }
+
 }
 
 GameManager::~GameManager()
@@ -51,4 +55,5 @@ GameManager::~GameManager()
 
     delete map;
     delete player;
+    delete prop;
 }

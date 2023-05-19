@@ -16,6 +16,7 @@ private:
 public:
 
     Prop(Vector2 pos, Texture2D tex);
+    void DrawProp(Vector2 playerPos);
 };
 
 
