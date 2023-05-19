@@ -8,8 +8,9 @@
 #include "Prop.h"
 #include <iostream>
 
-GameManager::GameManager() : windowWidth(384), windowHeight(384)
+GameManager::GameManager() : windowWidth(1000), windowHeight(1000)
 {
+    srand(time(NULL));
     gameName = "Classy Clash 2D";
     fps = 60;
 
@@ -21,7 +22,10 @@ GameManager::GameManager() : windowWidth(384), windowHeight(384)
 
     for (int i = 0; i < sizeof(propPositions) / sizeof(propPositions[0]); ++i)
     {
-        propPositions[i] = {static_cast<float>(100 * i+1), static_cast<float>(1000 - 100 * i+1)};
+        float xPos = (rand() % 2750) + 250.f;
+        float yPos = (rand() % 2750) + 250.f;
+        std::cout << xPos << "  " << yPos << std::endl;
+        propPositions[i] = {xPos, yPos};
     }
 
     for (int i = 0; i < sizeof(props) / sizeof(props[0]); ++i)
