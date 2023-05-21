@@ -5,9 +5,10 @@
 #ifndef CLASSYCLASH2D_PLAYER_H
 #define CLASSYCLASH2D_PLAYER_H
 
+#include "Character.h"
 #include "raylib.h"
 
-class Player {
+class Player : public Character{
 private:
 
     Texture2D idleTexture{};

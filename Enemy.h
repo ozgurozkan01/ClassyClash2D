@@ -4,9 +4,9 @@
 
 #ifndef CLASSYCLASH2D_ENEMY_H
 #define CLASSYCLASH2D_ENEMY_H
+#include "Character.h"
 
-
-class Enemy {
+class Enemy : public Character{
 
 };
 
