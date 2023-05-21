@@ -97,6 +97,14 @@ build CMakeFiles/ClassyClash2D.dir/Enemy.cpp.obj: CXX_COMPILER__ClassyClash2D_De
   OBJECT_DIR = CMakeFiles\ClassyClash2D.dir
   OBJECT_FILE_DIR = CMakeFiles\ClassyClash2D.dir
 
+build CMakeFiles/ClassyClash2D.dir/Character.cpp.obj: CXX_COMPILER__ClassyClash2D_Debug C$:/Users/ozgur/OneDrive/Documents/GitHub/ClassyClash2D/Character.cpp || cmake_object_order_depends_target_ClassyClash2D
+  DEFINES = -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP
+  DEP_FILE = CMakeFiles\ClassyClash2D.dir\Character.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/ozgur/OneDrive/Documents/GitHub/ClassyClash2D/cmake-build-debug/_deps/raylib-src/src -IC:/Users/ozgur/OneDrive/Documents/GitHub/ClassyClash2D/cmake-build-debug/_deps/raylib-src/src/external/glfw/include
+  OBJECT_DIR = CMakeFiles\ClassyClash2D.dir
+  OBJECT_FILE_DIR = CMakeFiles\ClassyClash2D.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ClassyClash2D
@@ -105,7 +113,7 @@ build CMakeFiles/ClassyClash2D.dir/Enemy.cpp.obj: CXX_COMPILER__ClassyClash2D_De
 #############################################
 # Link the executable ClassyClash2D.exe
 
-build ClassyClash2D.exe: CXX_EXECUTABLE_LINKER__ClassyClash2D_Debug CMakeFiles/ClassyClash2D.dir/main.cpp.obj CMakeFiles/ClassyClash2D.dir/GameManager.cpp.obj CMakeFiles/ClassyClash2D.dir/Map.cpp.obj CMakeFiles/ClassyClash2D.dir/Player.cpp.obj CMakeFiles/ClassyClash2D.dir/Prop.cpp.obj CMakeFiles/ClassyClash2D.dir/Enemy.cpp.obj | _deps/raylib-build/raylib/libraylib.a _deps/raylib-build/raylib/external/glfw/src/libglfw3.a || _deps/raylib-build/raylib/external/glfw/src/libglfw3.a _deps/raylib-build/raylib/libraylib.a
+build ClassyClash2D.exe: CXX_EXECUTABLE_LINKER__ClassyClash2D_Debug CMakeFiles/ClassyClash2D.dir/main.cpp.obj CMakeFiles/ClassyClash2D.dir/GameManager.cpp.obj CMakeFiles/ClassyClash2D.dir/Map.cpp.obj CMakeFiles/ClassyClash2D.dir/Player.cpp.obj CMakeFiles/ClassyClash2D.dir/Prop.cpp.obj CMakeFiles/ClassyClash2D.dir/Enemy.cpp.obj CMakeFiles/ClassyClash2D.dir/Character.cpp.obj | _deps/raylib-build/raylib/libraylib.a _deps/raylib-build/raylib/external/glfw/src/libglfw3.a || _deps/raylib-build/raylib/external/glfw/src/libglfw3.a _deps/raylib-build/raylib/libraylib.a
   FLAGS = -g
   LINK_LIBRARIES = _deps/raylib-build/raylib/libraylib.a  -lopengl32  -lglu32  -lwinmm  _deps/raylib-build/raylib/external/glfw/src/libglfw3.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\ClassyClash2D.dir
