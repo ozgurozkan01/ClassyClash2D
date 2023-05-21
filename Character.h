@@ -11,7 +11,7 @@ private:
 
     Texture2D idleTexture{};
     Texture2D runningTexture{};
-    Texture2D characterTexture{};
+    Texture2D currentTexture{};
     Vector2 characterPosition{};
     Rectangle source{};
     Rectangle dest{};
@@ -20,7 +20,7 @@ private:
     const float timeLimitBetweenTwoTexture;
     const float maxTextureAmount;
     float timeCounterBetweenTextures{};
-    float currentTexture{};
+    float currentTextureFrame{};
 
     float textureHeight;
     float textureWidth;

@@ -7,41 +7,36 @@
 Character::Character(float windowWidth, float windowHeight, Texture2D idle, Texture2D run) : movementSpeed(4.f), timeLimitBetweenTwoTexture(1.f / 12.f), maxTextureAmount(6.f)
 {
     scale = 4.f;
+
+    currentTexture = idle;
     idleTexture = idle;
     runningTexture = run;
 
-    textureWidth = static_cast<float>(characterTexture.width) / maxTextureAmount;
-    textureHeight = static_cast<float>(characterTexture.height);
+    textureWidth = static_cast<float>(currentTexture.width) / maxTextureAmount;
+    textureHeight = static_cast<float>(currentTexture.height);
     leftOrRightDirection = 1.f;
 
     characterPosition = {(static_cast<float>(windowWidth) / 2) - (4.0f * (0.5f * textureWidth)),
                       (static_cast<float>(windowHeight) / 2) - (4.f * (0.5f * textureHeight))};
 }
 
-
 void Character::Render()
 {
-    DrawTexturePro(characterTexture, SetSource(), SetDest(), Vector2{0.f, 0.f}, 1, WHITE);
+    DrawTexturePro(currentTexture, SetSource(), SetDest(), Vector2{0.f, 0.f}, 1, WHITE);
 }
 
-Texture2D Character::GetCharacterTexture() {
-    return characterTexture;
-}
-
-Rectangle Character::SetDest()
-{
+Rectangle Character::SetDest() {
     dest = {characterPosition.x, characterPosition.y, scale * textureWidth, scale * textureHeight};
     return dest;
 }
 
 Rectangle Character::SetSource() {
-    source = {currentTexture * textureWidth, 0.f, leftOrRightDirection * textureWidth, textureHeight};
+    source = {currentTextureFrame * textureWidth, 0.f, leftOrRightDirection * textureWidth, textureHeight};
     return source;
 }
 
-void Character::SetViewDirection()
-{
-    movementDirection.x < 0.f ? leftOrRightDirection = -1.f : leftOrRightDirection = 1.f;
+Texture2D Character::GetCharacterTexture() {
+    return currentTexture;
 }
 
 void Character::AnimateTexture(float deltaTime)
@@ -51,11 +46,11 @@ void Character::AnimateTexture(float deltaTime)
     if (timeCounterBetweenTextures >= timeLimitBetweenTwoTexture)
     {
         timeCounterBetweenTextures = 0;
-        currentTexture++;
+        currentTextureFrame++;
 
-        if (currentTexture >= maxTextureAmount)
+        if (currentTextureFrame >= maxTextureAmount)
         {
-            currentTexture = 0;
+            currentTextureFrame = 0;
         }
     }
 }
@@ -64,11 +59,11 @@ void Character::SetCharacterTexture()
 {
     if (movementDirection.x == 0 && movementDirection.y == 0)
     {
-        characterTexture = idleTexture;
+        currentTexture = idleTexture;
         return;
     }
 
-    characterTexture = runningTexture;
+    currentTexture = runningTexture;
 }
 Vector2 Character::GetPosOnMap() {
     return positionOnMap;
@@ -101,4 +96,9 @@ Rectangle Character::GetCollisionRec() {
             textureWidth * scale,
             textureHeight * scale
     };
+}
+
+void Character::SetViewDirection()
+{
+    movementDirection.x < 0.f ? leftOrRightDirection = -1.f : leftOrRightDirection = 1.f;
 }
