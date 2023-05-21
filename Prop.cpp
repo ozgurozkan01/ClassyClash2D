@@ -4,7 +4,6 @@
 
 #include "Prop.h"
 #include "raymath.h"
-#include <iostream>
 
 Prop::Prop(Vector2 pos, Texture2D tex) : position(pos), texture(tex)
 {
