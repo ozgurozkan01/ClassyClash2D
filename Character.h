@@ -12,7 +12,6 @@ private:
     Texture2D idleTexture{};
     Texture2D runningTexture{};
     Texture2D currentTexture{};
-    Vector2 characterPosition{};
     Rectangle source{};
     Rectangle dest{};
     float leftOrRightDirection;
@@ -30,9 +29,10 @@ private:
 protected:
     const float movementSpeed;
     Vector2 movementDirection{};
+    Vector2 characterPosition{};
     Vector2 positionOnMap{};
 public:
-    Character(float windowWidth, float windowHeight, Texture2D idle, Texture2D run);
+    Character(float positionX, float positionY, Texture2D idle, Texture2D run);
 
     [[nodiscard]] bool CanMoveOnMap(float windowWidth, float windowHeight, float mapWidth, float mapHeight) const;
     void Render();

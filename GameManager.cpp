@@ -6,6 +6,7 @@
 #include "Map.h"
 #include "Player.h"
 #include "Prop.h"
+#include "Enemy.h"
 #include <iostream>
 
 GameManager::GameManager() : windowWidth(384), windowHeight(384)
@@ -41,6 +42,12 @@ GameManager::GameManager() : windowWidth(384), windowHeight(384)
         else
             props[i] = new Prop{propPositions[i], LoadTexture("nature_tileset/Log.png")};
     }
+
+    goblin = new Enemy(
+            static_cast<float>(windowWidth),
+            static_cast<float>(windowHeight),
+            LoadTexture("characters/goblin_idle_spritesheet.png"),
+            LoadTexture("characters/goblin_run_spritesheet.png"));
 }
 
 void GameManager::Tick(float deltaTime) const
@@ -77,6 +84,12 @@ void GameManager::Tick(float deltaTime) const
             player->UndoMovement();
         }
     }
+
+    goblin->SetLastPositionFrame();
+    goblin->SetCharacterTexture();
+    goblin->SetViewDirection();
+    goblin->AnimateTexture(deltaTime);
+    goblin->Render();
 }
 
 GameManager::~GameManager()

@@ -12,7 +12,7 @@ class Player : public Character{
 
 public:
 
-    Player(float windowWidth, float windowHeight, Texture2D idle, Texture2D run);
+    Player(float windowWidth, float windowHeight,Texture2D idle, Texture2D run);
     void Move();
 };
 

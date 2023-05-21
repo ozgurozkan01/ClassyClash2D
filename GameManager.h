@@ -9,6 +9,7 @@
 class Map;
 class Player;
 class Prop;
+class Enemy;
 
 class GameManager {
 
@@ -22,11 +23,12 @@ private:
 
     Vector2 propPositions[6];
 
-
     // CLASSES
     Map* map;
     Player* player;
     Prop *props[6];
+    Enemy* goblin;
+
 public:
 
 

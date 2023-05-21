@@ -16,8 +16,10 @@ Character::Character(float windowWidth, float windowHeight, Texture2D idle, Text
     textureHeight = static_cast<float>(currentTexture.height);
     leftOrRightDirection = 1.f;
 
-    characterPosition = {(static_cast<float>(windowWidth) / 2) - (4.0f * (0.5f * textureWidth)),
-                      (static_cast<float>(windowHeight) / 2) - (4.f * (0.5f * textureHeight))};
+    characterPosition = {
+            (static_cast<float>(windowWidth) / 2) - (4.0f * (0.5f * textureWidth)),
+            (static_cast<float>(windowHeight) / 2) - (4.f * (0.5f * textureHeight))
+    };
 }
 
 void Character::Render()
