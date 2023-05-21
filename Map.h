@@ -23,5 +23,4 @@ public:
     void Move(Vector2 position);
 };
 
-
 #endif //CLASSYCLASH2D_MAP_H

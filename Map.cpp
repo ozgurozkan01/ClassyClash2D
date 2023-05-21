@@ -1,7 +1,6 @@
 //
 // Created by ozgur on 5/12/2023.
 //
-
 #include "Map.h"
 #include "raymath.h"
 
