@@ -24,7 +24,6 @@ GameManager::GameManager() : windowWidth(384), windowHeight(384)
     {
         float xPos = (rand() % 2750) + 250.f;
         float yPos = (rand() % 2750) + 250.f;
-        std::cout << xPos << "  " << yPos << std::endl;
         propPositions[i] = {xPos, yPos};
     }
 
