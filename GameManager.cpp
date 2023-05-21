@@ -8,7 +8,7 @@
 #include "Prop.h"
 #include <iostream>
 
-GameManager::GameManager() : windowWidth(1000), windowHeight(1000)
+GameManager::GameManager() : windowWidth(384), windowHeight(384)
 {
     srand(time(NULL));
     gameName = "Classy Clash 2D";
@@ -28,9 +28,14 @@ GameManager::GameManager() : windowWidth(1000), windowHeight(1000)
         propPositions[i] = {xPos, yPos};
     }
 
-    for (int i = 0; i < sizeof(props) / sizeof(props[0]); ++i)
+    for (int i = 0; i < (sizeof(propPositions) / sizeof(propPositions[0])) / 2; ++i)
     {
-        props[i] = new Prop{propPositions[i], LoadTexture("nature_tileset/Rock.png")};
+        rocks[i] = new Prop{propPositions[i], LoadTexture("nature_tileset/Rock.png")};
+    }
+
+    for (int i = (sizeof(propPositions) / sizeof(propPositions[0])) / 2, j = 0; i < sizeof(propPositions) / sizeof(propPositions[0]); ++i, ++j)
+    {
+        logs[j] = new Prop{propPositions[i], LoadTexture("nature_tileset/Log.png")};
     }
 }
 
@@ -56,9 +61,14 @@ void GameManager::Tick(float deltaTime) const
         player->UndoMovement();
     }
 
-    for (auto prop : props)
+    for (auto rock : rocks)
     {
-        prop->DrawProp(player->GetPosOnMap());
+        rock->DrawProp(player->GetPosOnMap());
+    }
+
+    for (auto log : logs)
+    {
+        log->DrawProp(player->GetPosOnMap());
     }
 }
 
@@ -71,8 +81,13 @@ GameManager::~GameManager()
     delete map;
     delete player;
 
-    for (Prop *prop : props)
+    for (Prop *prop : rocks)
     {
         delete prop;
+    }
+
+    for (Prop *log : logs)
+    {
+        delete log;
     }
 }

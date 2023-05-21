@@ -20,13 +20,14 @@ private:
 
     int fps;
 
-    Vector2 propPositions[4];
+    Vector2 propPositions[8];
+
 
     // CLASSES
     Map* map;
     Player* player;
-    Prop *props[4];
-
+    Prop *rocks[4];
+    Prop *logs[4];
 public:
 
 
