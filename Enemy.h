@@ -8,6 +8,8 @@
 
 class Enemy : public Character{
 
+public:
+    Enemy(float windowWidth, float windowHeight, Texture2D idle, Texture2D run);
 };
 
 

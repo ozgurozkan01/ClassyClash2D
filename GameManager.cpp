@@ -17,7 +17,11 @@ GameManager::GameManager() : windowWidth(384), windowHeight(384)
     SetTargetFPS(fps);
     InitWindow(windowWidth, windowHeight, gameName);
 
-    player = new Player(static_cast<float>(windowWidth), static_cast<float>(windowHeight));
+    player = new Player(
+            static_cast<float>(windowWidth),
+            static_cast<float>(windowHeight),
+            LoadTexture("characters/knight_idle_spritesheet.png"),
+            LoadTexture("characters/knight_run_spritesheet.png"));
     map = new Map();
 
     for (int i = 0; i < sizeof(propPositions) / sizeof(propPositions[0]); ++i)
@@ -47,10 +51,10 @@ void GameManager::Tick(float deltaTime) const
 
     player->SetLastPositionFrame();
     player->Move();
-    player->SetPlayerTexture();
+    player->SetCharacterTexture();
     player->SetViewDirection();
     player->AnimateTexture(deltaTime);
-    player->DrawPlayer();
+    player->Render();
 
     if (player->CanMoveOnMap(static_cast<float>(windowWidth),
                              static_cast<float>(windowHeight),
@@ -78,7 +82,7 @@ void GameManager::Tick(float deltaTime) const
 GameManager::~GameManager()
 {
     UnloadTexture(map->GetMapTexture());
-    UnloadTexture(player->GetPlayerTexture());
+    UnloadTexture(player->GetCharacterTexture());
     CloseWindow();
 
     delete map;
