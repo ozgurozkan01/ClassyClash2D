@@ -17,6 +17,7 @@ public:
 
     Prop(Vector2 pos, Texture2D tex);
     void DrawProp(Vector2 playerPos);
+    Rectangle GetCollisionRec(Vector2 playerPos);
 };
 
 

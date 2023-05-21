@@ -7,6 +7,7 @@
 
 Player::Player(float windowWidth, float windowHeight) : movementSpeed(4.f), timeLimitBetweenTwoTexture(1.f / 12.f), maxTextureAmount(6.f)
 {
+    scale = 4.f;
     playerTexture = LoadTexture("characters/knight_idle_spritesheet.png");
     idleTexture = LoadTexture("characters/knight_idle_spritesheet.png");
     runningTexture = LoadTexture("characters/knight_run_spritesheet.png");
@@ -30,7 +31,7 @@ Texture2D Player::GetPlayerTexture() {
 
 Rectangle Player::SetDest()
 {
-    dest = {playerPosition.x, playerPosition.y, 4.f * textureWidth, 4.f * textureHeight};
+    dest = {playerPosition.x, playerPosition.y, scale * textureWidth, scale * textureHeight};
     return dest;
 }
 
@@ -101,10 +102,19 @@ void Player::UndoMovement()
     positionOnMap = lastPositionFrameOnMap;
 }
 
-bool Player::CanMoveOnMap(float windowWidth, float windowHeight, float mapWidth, float mapHeight, float mapScale) const
+bool Player::CanMoveOnMap(float windowWidth, float windowHeight, float mapWidth, float mapHeight) const
 {
     return positionOnMap.x < 0 ||
            positionOnMap.y < 0 ||
-           positionOnMap.x + windowWidth > mapWidth * mapScale ||
-           positionOnMap.y + windowHeight > mapHeight * mapScale;
+           positionOnMap.x + windowWidth > mapWidth * scale ||
+           positionOnMap.y + windowHeight > mapHeight * scale;
+}
+
+Rectangle Player::GetCollisionRec() {
+    return Rectangle{
+      positionOnMap.x,
+      positionOnMap.y,
+      static_cast<float>(playerTexture.width) * scale,
+      static_cast<float>(playerTexture.height) * scale
+    };
 }

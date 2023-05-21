@@ -17,3 +17,14 @@ void Prop::DrawProp(Vector2 playerPos)
     DrawTextureEx(texture, posOnMap, 0.f, scale, WHITE);
 }
 
+Rectangle Prop::GetCollisionRec(Vector2 playerPos)
+{
+    Vector2 posOnMap = {Vector2Subtract(position, playerPos)};
+    return Rectangle{
+        posOnMap.x,
+        posOnMap.y,
+        static_cast<float>(texture.width) * scale,
+        static_cast<float>(texture.height) * scale
+    };
+}
+

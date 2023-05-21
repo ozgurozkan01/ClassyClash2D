@@ -18,7 +18,7 @@ private:
     Rectangle source{};
     Rectangle dest{};
     float leftOrRightDirection;
-
+    float scale;
     const float timeLimitBetweenTwoTexture;
     const float maxTextureAmount;
     float timeCounterBetweenTextures{};
@@ -40,14 +40,16 @@ public:
     void SetViewDirection();
     void AnimateTexture(float deltaTime);
     void Move();
-    [[nodiscard]] bool CanMoveOnMap(float windowWidth, float windowHeight, float mapWidth, float mapHeight, float mapScale) const;
+    [[nodiscard]] bool CanMoveOnMap(float windowWidth, float windowHeight, float mapWidth, float mapHeight) const;
     Vector2 GetPosOnMap();
     Rectangle SetDest();
     Rectangle SetSource();
+    Rectangle GetCollisionRec();
     Texture2D GetPlayerTexture();
     void SetPlayerTexture();
     void SetLastPositionFrame();
     void UndoMovement();
+
 };
 
 

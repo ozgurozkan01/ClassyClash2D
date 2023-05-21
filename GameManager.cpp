@@ -28,14 +28,15 @@ GameManager::GameManager() : windowWidth(384), windowHeight(384)
         propPositions[i] = {xPos, yPos};
     }
 
-    for (int i = 0; i < (sizeof(propPositions) / sizeof(propPositions[0])) / 2; ++i)
+    for (int i = 0; i < (sizeof(propPositions) / sizeof(propPositions[0])); ++i)
     {
-        rocks[i] = new Prop{propPositions[i], LoadTexture("nature_tileset/Rock.png")};
-    }
+        if (i % 2 == 0)
+        {
+            props[i] = new Prop{propPositions[i], LoadTexture("nature_tileset/Rock.png")};
+        }
 
-    for (int i = (sizeof(propPositions) / sizeof(propPositions[0])) / 2, j = 0; i < sizeof(propPositions) / sizeof(propPositions[0]); ++i, ++j)
-    {
-        logs[j] = new Prop{propPositions[i], LoadTexture("nature_tileset/Log.png")};
+        else
+            props[i] = new Prop{propPositions[i], LoadTexture("nature_tileset/Log.png")};
     }
 }
 
@@ -55,21 +56,24 @@ void GameManager::Tick(float deltaTime) const
     if (player->CanMoveOnMap(static_cast<float>(windowWidth),
                              static_cast<float>(windowHeight),
                              static_cast<float>(map->GetMapTexture().width),
-                             static_cast<float>(map->GetMapTexture().height),
-                             map->GetMapScale()))
+                             static_cast<float>(map->GetMapTexture().height)))
     {
         player->UndoMovement();
     }
 
-    for (auto rock : rocks)
+    for (auto prop : props)
     {
-        rock->DrawProp(player->GetPosOnMap());
+        prop->DrawProp(player->GetPosOnMap());
     }
 
-    for (auto log : logs)
+    for (auto prop : props)
     {
-        log->DrawProp(player->GetPosOnMap());
+        if(CheckCollisionRecs(prop->GetCollisionRec(player->GetPosOnMap()), player->GetCollisionRec()))
+        {
+            player->UndoMovement();
+        }
     }
+
 }
 
 GameManager::~GameManager()
@@ -81,13 +85,8 @@ GameManager::~GameManager()
     delete map;
     delete player;
 
-    for (Prop *prop : rocks)
+    for (Prop *prop : props)
     {
         delete prop;
-    }
-
-    for (Prop *log : logs)
-    {
-        delete log;
     }
 }
