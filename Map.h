@@ -21,7 +21,6 @@ public:
     void DrawMap();
     Texture2D GetMapTexture();
     void Move(Vector2 position);
-    float GetMapScale() const;
 };
 
 

@@ -23,6 +23,7 @@ Player::Player(float windowWidth, float windowHeight) : movementSpeed(4.f), time
 void Player::DrawPlayer()
 {
     DrawTexturePro(playerTexture, SetSource(),SetDest(), Vector2{0.f, 0.f}, 1, WHITE);
+    DrawRectangle(playerPosition.x, playerPosition.y, 10, 10, RED);
 }
 
 Texture2D Player::GetPlayerTexture() {
@@ -112,9 +113,9 @@ bool Player::CanMoveOnMap(float windowWidth, float windowHeight, float mapWidth,
 
 Rectangle Player::GetCollisionRec() {
     return Rectangle{
-      positionOnMap.x,
-      positionOnMap.y,
-      static_cast<float>(playerTexture.width) * scale,
-      static_cast<float>(playerTexture.height) * scale
+      playerPosition.x,
+      playerPosition.y,
+      textureWidth * scale,
+      textureHeight * scale
     };
 }

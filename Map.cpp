@@ -24,7 +24,3 @@ void Map::Move(Vector2 playerPosition)
 {
     position = Vector2Scale(playerPosition, -1.f);
 }
-
-float Map::GetMapScale() const {
-    return mapScale;
-}

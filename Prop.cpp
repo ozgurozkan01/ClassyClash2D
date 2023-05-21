@@ -13,13 +13,14 @@ Prop::Prop(Vector2 pos, Texture2D tex) : position(pos), texture(tex)
 
 void Prop::DrawProp(Vector2 playerPos)
 {
-    Vector2 posOnMap = {Vector2Subtract(position, playerPos)};
+    Vector2 posOnMap{Vector2Subtract(position, playerPos)};
     DrawTextureEx(texture, posOnMap, 0.f, scale, WHITE);
+    DrawRectangle(posOnMap.x, posOnMap.y, 10, 10, RED);
 }
 
 Rectangle Prop::GetCollisionRec(Vector2 playerPos)
 {
-    Vector2 posOnMap = {Vector2Subtract(position, playerPos)};
+    Vector2 posOnMap{Vector2Subtract(position, playerPos)};
     return Rectangle{
         posOnMap.x,
         posOnMap.y,
@@ -27,4 +28,3 @@ Rectangle Prop::GetCollisionRec(Vector2 playerPos)
         static_cast<float>(texture.height) * scale
     };
 }
-
