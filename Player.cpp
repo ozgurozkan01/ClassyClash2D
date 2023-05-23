@@ -5,12 +5,8 @@
 #include "Player.h"
 #include "raymath.h"
 
-Player::Player(float windowWidth, float windowHeight,Texture2D idle, Texture2D run) : Character(
-        windowWidth,
-        windowHeight,
-        idle,
-        run
-        )
+Player::Player(float windowWidth, float windowHeight,Texture2D idle, Texture2D run) :
+    Character(windowWidth, windowHeight, idle, run)
 {
     characterPosition = {
             (static_cast<float>(windowWidth) / 2) - (4.0f * (0.5f * textureWidth)),
