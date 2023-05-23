@@ -5,10 +5,10 @@
 #ifndef CLASSYCLASH2D_PLAYER_H
 #define CLASSYCLASH2D_PLAYER_H
 
-#include "Character.h"
+#include "BaseCharacter.h"
 #include "raylib.h"
 
-class Player : public Character{
+class Player : public BaseCharacter{
 
 public:
 

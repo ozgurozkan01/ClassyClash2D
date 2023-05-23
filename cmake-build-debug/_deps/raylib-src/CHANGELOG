@@ -1478,7 +1478,7 @@ other changes:
 [textures] Added function ImageConvertFormat()
 [textures] Added function GenTextureMipmaps()
 [text] Added support for Latin-1 Extended characters for default font
-[text] Redesigned SpriteFont struct, replaced Character struct by Rectangle
+[text] Redesigned SpriteFont struct, replaced BaseCharacter struct by Rectangle
 [text] Removed function GetFontBaseSize(), use directly spriteFont.size
 [models] Review of struct: Model (added shaders support)
 [models] Added 3d collision functions (sphere vs sphere vs box vs box)

@@ -129,11 +129,11 @@
             <Field type="int" name="layout" desc="Layout of the n-patch: 3x3, 1x3 or 3x1" />
         </Struct>
         <Struct name="GlyphInfo" fieldCount="5" desc="GlyphInfo, font characters glyphs info">
-            <Field type="int" name="value" desc="Character value (Unicode)" />
-            <Field type="int" name="offsetX" desc="Character offset X when drawing" />
-            <Field type="int" name="offsetY" desc="Character offset Y when drawing" />
-            <Field type="int" name="advanceX" desc="Character advance position X" />
-            <Field type="Image" name="image" desc="Character image data" />
+            <Field type="int" name="value" desc="BaseCharacter value (Unicode)" />
+            <Field type="int" name="offsetX" desc="BaseCharacter offset X when drawing" />
+            <Field type="int" name="offsetY" desc="BaseCharacter offset Y when drawing" />
+            <Field type="int" name="advanceX" desc="BaseCharacter advance position X" />
+            <Field type="Image" name="image" desc="BaseCharacter image data" />
         </Struct>
         <Struct name="Font" fieldCount="6" desc="Font, font texture and GlyphInfo array data">
             <Field type="int" name="baseSize" desc="Base size (default chars height)" />

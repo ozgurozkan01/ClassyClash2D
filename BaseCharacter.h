@@ -2,11 +2,11 @@
 // Created by ozgur on 5/21/2023.
 //
 
-#ifndef CLASSYCLASH2D_CHARACTER_H
-#define CLASSYCLASH2D_CHARACTER_H
+#ifndef CLASSYCLASH2D_BASECHARACTER_H
+#define CLASSYCLASH2D_BASECHARACTER_H
 #include "raylib.h"
 
-class Character {
+class BaseCharacter {
 private:
 
     Texture2D idleTexture{};
@@ -32,7 +32,7 @@ protected:
     Vector2 characterPosition{};
     Vector2 positionOnMap{};
 public:
-    Character(float windowWidth, float windowHeight, Texture2D idle, Texture2D run);
+    BaseCharacter(float windowWidth, float windowHeight, Texture2D idle, Texture2D run);
 
     [[nodiscard]] bool CanMoveOnMap(float windowWidth, float windowHeight, float mapWidth, float mapHeight) const;
     void Render();
@@ -49,4 +49,4 @@ public:
 };
 
 
-#endif //CLASSYCLASH2D_CHARACTER_H
+#endif //CLASSYCLASH2D_BASECHARACTER_H

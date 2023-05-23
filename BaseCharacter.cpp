@@ -2,9 +2,9 @@
 // Created by ozgur on 5/21/2023.
 //
 
-#include "Character.h"
+#include "BaseCharacter.h"
 
-Character::Character(float windowWidth, float windowHeight, Texture2D idle, Texture2D run) : movementSpeed(4.f), timeLimitBetweenTwoTexture(1.f / 12.f), maxTextureAmount(6.f)
+BaseCharacter::BaseCharacter(float windowWidth, float windowHeight, Texture2D idle, Texture2D run) : movementSpeed(4.f), timeLimitBetweenTwoTexture(1.f / 12.f), maxTextureAmount(6.f)
 {
     scale = 4.f;
 
@@ -17,26 +17,26 @@ Character::Character(float windowWidth, float windowHeight, Texture2D idle, Text
     leftOrRightDirection = 1.f;
 }
 
-void Character::Render()
+void BaseCharacter::Render()
 {
     DrawTexturePro(currentTexture, SetSource(), SetDest(), Vector2{0.f, 0.f}, 1, WHITE);
 }
 
-Rectangle Character::SetDest() {
+Rectangle BaseCharacter::SetDest() {
     dest = {characterPosition.x, characterPosition.y, scale * textureWidth, scale * textureHeight};
     return dest;
 }
 
-Rectangle Character::SetSource() {
+Rectangle BaseCharacter::SetSource() {
     source = {currentTextureFrame * textureWidth, 0.f, leftOrRightDirection * textureWidth, textureHeight};
     return source;
 }
 
-Texture2D Character::GetCharacterTexture() {
+Texture2D BaseCharacter::GetCharacterTexture() {
     return currentTexture;
 }
 
-void Character::AnimateTexture(float deltaTime)
+void BaseCharacter::AnimateTexture(float deltaTime)
 {
     timeCounterBetweenTextures += deltaTime;
 
@@ -52,7 +52,7 @@ void Character::AnimateTexture(float deltaTime)
     }
 }
 
-void Character::SetCharacterTexture()
+void BaseCharacter::SetCharacterTexture()
 {
     if (movementDirection.x == 0 && movementDirection.y == 0)
     {
@@ -62,23 +62,23 @@ void Character::SetCharacterTexture()
 
     currentTexture = runningTexture;
 }
-Vector2 Character::GetPosOnMap() {
+Vector2 BaseCharacter::GetPosOnMap() {
     return positionOnMap;
 }
 
-void Character::SetLastPositionFrame()
+void BaseCharacter::SetLastPositionFrame()
 {
     // set last position frame in moveable area
     lastPositionFrameOnMap = positionOnMap;
 }
 
-void Character::UndoMovement()
+void BaseCharacter::UndoMovement()
 {
     // set last position frame as current position which is on border
     positionOnMap = lastPositionFrameOnMap;
 }
 
-bool Character::CanMoveOnMap(float windowWidth, float windowHeight, float mapWidth, float mapHeight) const
+bool BaseCharacter::CanMoveOnMap(float windowWidth, float windowHeight, float mapWidth, float mapHeight) const
 {
     return positionOnMap.x < 0 ||
            positionOnMap.y < 0 ||
@@ -86,7 +86,7 @@ bool Character::CanMoveOnMap(float windowWidth, float windowHeight, float mapWid
            positionOnMap.y + windowHeight > mapHeight * scale;
 }
 
-Rectangle Character::GetCollisionRec() {
+Rectangle BaseCharacter::GetCollisionRec() {
     return Rectangle{
             characterPosition.x,
             characterPosition.y,
@@ -95,7 +95,7 @@ Rectangle Character::GetCollisionRec() {
     };
 }
 
-void Character::SetViewDirection()
+void BaseCharacter::SetViewDirection()
 {
     movementDirection.x < 0.f ? leftOrRightDirection = -1.f : leftOrRightDirection = 1.f;
 }

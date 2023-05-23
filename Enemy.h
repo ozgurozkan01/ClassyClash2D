@@ -4,9 +4,9 @@
 
 #ifndef CLASSYCLASH2D_ENEMY_H
 #define CLASSYCLASH2D_ENEMY_H
-#include "Character.h"
+#include "BaseCharacter.h"
 
-class Enemy : public Character{
+class Enemy : public BaseCharacter{
 
 public:
     Enemy(float windowWidth, float windowHeight, Texture2D idle, Texture2D run);

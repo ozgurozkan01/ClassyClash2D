@@ -31,8 +31,8 @@
 },
 {
   "directory": "C:/Users/ozgur/OneDrive/Documents/GitHub/ClassyClash2D/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.2\\bin\\mingw\\bin\\G__~1.EXE -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -IC:/Users/ozgur/OneDrive/Documents/GitHub/ClassyClash2D/cmake-build-debug/_deps/raylib-src/src -IC:/Users/ozgur/OneDrive/Documents/GitHub/ClassyClash2D/cmake-build-debug/_deps/raylib-src/src/external/glfw/include -g -fdiagnostics-color=always -o CMakeFiles\\ClassyClash2D.dir\\Character.cpp.obj -c C:\\Users\\ozgur\\OneDrive\\Documents\\GitHub\\ClassyClash2D\\Character.cpp",
-  "file": "C:\\Users\\ozgur\\OneDrive\\Documents\\GitHub\\ClassyClash2D\\Character.cpp"
+  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.2\\bin\\mingw\\bin\\G__~1.EXE -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -IC:/Users/ozgur/OneDrive/Documents/GitHub/ClassyClash2D/cmake-build-debug/_deps/raylib-src/src -IC:/Users/ozgur/OneDrive/Documents/GitHub/ClassyClash2D/cmake-build-debug/_deps/raylib-src/src/external/glfw/include -g -fdiagnostics-color=always -o CMakeFiles\\ClassyClash2D.dir\\BaseCharacter.cpp.obj -c C:\\Users\\ozgur\\OneDrive\\Documents\\GitHub\\ClassyClash2D\\BaseCharacter.cpp",
+  "file": "C:\\Users\\ozgur\\OneDrive\\Documents\\GitHub\\ClassyClash2D\\BaseCharacter.cpp"
 },
 {
   "directory": "C:/Users/ozgur/OneDrive/Documents/GitHub/ClassyClash2D/cmake-build-debug",
