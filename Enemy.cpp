@@ -9,3 +9,8 @@ Enemy::Enemy(float windowWidth, float windowHeight, Texture2D idle, Texture2D ru
 {
 
 }
+
+void Enemy::Tick(float deltaTime)
+{
+    BaseCharacter::Tick(deltaTime);
+}

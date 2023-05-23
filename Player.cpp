@@ -26,3 +26,10 @@ void Player::Move()
         positionOnMap = Vector2Add(positionOnMap, Vector2Scale(Vector2Normalize(movementDirection), movementSpeed));
     }
 }
+
+void Player::Tick(float deltaTime)
+{
+    BaseCharacter::Tick(deltaTime);
+
+    Move();
+}

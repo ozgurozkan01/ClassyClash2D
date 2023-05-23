@@ -14,6 +14,8 @@ public:
 
     Player(float windowWidth, float windowHeight,Texture2D idle, Texture2D run);
     void Move();
+    virtual void Tick(float deltaTime) override;
+
 };
 
 

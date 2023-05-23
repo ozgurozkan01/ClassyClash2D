@@ -46,6 +46,7 @@ public:
     void SetCharacterTexture();
     void SetLastPositionFrame();
     void UndoMovement();
+    virtual void Tick(float deltaTime);
 };
 
 

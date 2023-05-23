@@ -56,12 +56,7 @@ void GameManager::Tick(float deltaTime) const
     map->Move(player->GetPosOnMap());
     map->DrawMap();
 
-    player->SetLastPositionFrame();
-    player->Move();
-    player->SetCharacterTexture();
-    player->SetViewDirection();
-    player->AnimateTexture(deltaTime);
-    player->Render();
+    player->Tick(deltaTime);
 
     if (player->CanMoveOnMap(static_cast<float>(windowWidth),
                              static_cast<float>(windowHeight),
@@ -85,11 +80,7 @@ void GameManager::Tick(float deltaTime) const
         }
     }
 
-    goblin->SetLastPositionFrame();
-    goblin->SetCharacterTexture();
-    goblin->SetViewDirection();
-    goblin->AnimateTexture(deltaTime);
-    goblin->Render();
+    goblin->Tick(deltaTime);
 }
 
 GameManager::~GameManager()

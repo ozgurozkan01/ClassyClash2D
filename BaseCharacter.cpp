@@ -99,3 +99,20 @@ void BaseCharacter::SetViewDirection()
 {
     movementDirection.x < 0.f ? leftOrRightDirection = -1.f : leftOrRightDirection = 1.f;
 }
+
+void BaseCharacter::Tick(float deltaTime)
+{
+    SetLastPositionFrame();
+    SetCharacterTexture();
+    SetViewDirection();
+    AnimateTexture(deltaTime);
+    Render();
+
+/*    if (CanMoveOnMap(static_cast<float>(windowWidth),
+                             static_cast<float>(windowHeight),
+                             static_cast<float>(map->GetMapTexture().width),
+                             static_cast<float>(map->GetMapTexture().height)))
+    {
+        UndoMovement();
+    }*/
+}
