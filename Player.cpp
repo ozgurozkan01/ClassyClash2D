@@ -11,7 +11,12 @@ Player::Player(float windowWidth, float windowHeight,Texture2D idle, Texture2D r
         idle,
         run
         )
-{}
+{
+    characterPosition = {
+            (static_cast<float>(windowWidth) / 2) - (4.0f * (0.5f * textureWidth)),
+            (static_cast<float>(windowHeight) / 2) - (4.f * (0.5f * textureHeight))
+    };
+}
 void Player::Move()
 {
     movementDirection = {0.f, 0.f};

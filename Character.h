@@ -20,19 +20,19 @@ private:
     const float maxTextureAmount;
     float timeCounterBetweenTextures{};
     float currentTextureFrame{};
+    Vector2 lastPositionFrameOnMap{};
+
+protected:
 
     float textureHeight;
     float textureWidth;
 
-    Vector2 lastPositionFrameOnMap{};
-
-protected:
     const float movementSpeed;
     Vector2 movementDirection{};
     Vector2 characterPosition{};
     Vector2 positionOnMap{};
 public:
-    Character(float positionX, float positionY, Texture2D idle, Texture2D run);
+    Character(float windowWidth, float windowHeight, Texture2D idle, Texture2D run);
 
     [[nodiscard]] bool CanMoveOnMap(float windowWidth, float windowHeight, float mapWidth, float mapHeight) const;
     void Render();
