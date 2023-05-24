@@ -13,10 +13,13 @@ class Enemy : public BaseCharacter{
 public:
     Enemy(float windowWidth, float windowHeight, Texture2D idle, Texture2D run, Player* player);
     virtual void Tick(float deltaTime) override;
-
+    void UpdatePositionOnMap();
+    Vector2 GetDirectionVector();
+    void Move();
 private:
     Player* player;
-    void UpdatePositionOnMap();
+    Vector2 directionVector;
+    float movementSpeed;
 };
 
 

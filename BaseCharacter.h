@@ -47,6 +47,7 @@ public:
     void SetLastPositionFrame();
     void UndoMovement();
     virtual void Tick(float deltaTime);
+    Vector2 GetScreenPos();
 };
 
 

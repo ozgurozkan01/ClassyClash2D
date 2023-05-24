@@ -62,6 +62,12 @@ void BaseCharacter::SetCharacterTexture()
 
     currentTexture = runningTexture;
 }
+
+Vector2 BaseCharacter::GetScreenPos()
+{
+    return screenPosition;
+}
+
 Vector2 BaseCharacter::GetPosOnMap() {
     return worldPosition;
 }
