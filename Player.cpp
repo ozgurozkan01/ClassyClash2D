@@ -12,6 +12,8 @@ Player::Player(float windowWidth, float windowHeight,Texture2D idle, Texture2D r
             (static_cast<float>(windowWidth) / 2) - (4.0f * (0.5f * textureWidth)),
             (static_cast<float>(windowHeight) / 2) - (4.f * (0.5f * textureHeight))
     };
+
+    movementSpeed = 4.f;
 }
 void Player::Move()
 {
@@ -21,7 +23,7 @@ void Player::Move()
     if (IsKeyDown(KEY_W)) movementDirection.y -= 1;
     if (IsKeyDown(KEY_S)) movementDirection.y += 1;
 
-    if (Vector2Length(movementDirection) != 0)
+    if (IsCharacterRunning())
     {
         mapPosition = Vector2Add(mapPosition, Vector2Scale(Vector2Normalize(movementDirection), movementSpeed));
     }

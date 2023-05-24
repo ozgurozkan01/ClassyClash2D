@@ -27,13 +27,13 @@ void Enemy::UpdatePositionOnMap()
 
 Vector2 Enemy::GetDirectionVector()
 {
-    directionVector = Vector2Normalize(Vector2Subtract(player->GetScreenPos(), worldPosition));
-    return directionVector;
+    movementDirection = Vector2Normalize(Vector2Subtract(player->GetScreenPos(), worldPosition));
+    return movementDirection;
 }
 
 Vector2 Enemy::ScaleDirecionVector() {
-    directionVector = Vector2Scale(GetDirectionVector(), movementSpeed);
-    return directionVector;
+    movementDirection = Vector2Scale(GetDirectionVector(), movementSpeed);
+    return movementDirection;
 }
 
 void Enemy::Move()

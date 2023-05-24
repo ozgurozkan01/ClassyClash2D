@@ -27,7 +27,7 @@ protected:
     float textureHeight;
     float textureWidth;
 
-    const float movementSpeed;
+    float movementSpeed;
     Vector2 movementDirection{};
     Vector2 worldPosition{}; // In World Position
     Vector2 mapPosition{}; // On Map Position
@@ -39,6 +39,7 @@ public:
     void SetViewDirection();
     void AnimateTexture(float deltaTime);
     Vector2 GetPosOnMap();
+    Vector2 GetScreenPos();
     Rectangle SetDest();
     Rectangle SetSource();
     Rectangle GetCollisionRec();
@@ -47,7 +48,8 @@ public:
     void SetLastPositionFrame();
     void UndoMovement();
     virtual void Tick(float deltaTime);
-    Vector2 GetScreenPos();
+    bool IsCharacterRunning();
+
 };
 
 

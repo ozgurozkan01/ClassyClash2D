@@ -19,8 +19,6 @@ public:
     void Move();
 private:
     Player* player;
-    Vector2 directionVector;
-    float movementSpeed;
 };
 
 

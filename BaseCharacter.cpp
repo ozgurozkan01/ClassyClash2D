@@ -3,8 +3,8 @@
 //
 
 #include "BaseCharacter.h"
-
-BaseCharacter::BaseCharacter(float windowWidth, float windowHeight, Texture2D idle, Texture2D run) : movementSpeed(4.f), timeLimitBetweenTwoTexture(1.f / 12.f), maxTextureAmount(6.f)
+#include "raymath.h"
+BaseCharacter::BaseCharacter(float windowWidth, float windowHeight, Texture2D idle, Texture2D run) : timeLimitBetweenTwoTexture(1.f / 12.f), maxTextureAmount(6.f)
 {
     scale = 4.f;
 
@@ -121,4 +121,9 @@ void BaseCharacter::Tick(float deltaTime)
     {
         UndoMovement();
     }*/
+}
+
+bool BaseCharacter::IsCharacterRunning()
+{
+    return Vector2Length(movementDirection) != 0;
 }
