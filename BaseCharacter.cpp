@@ -23,7 +23,7 @@ void BaseCharacter::Render()
 }
 
 Rectangle BaseCharacter::SetDest() {
-    dest = {screenPosition.x, screenPosition.y, scale * textureWidth, scale * textureHeight};
+    dest = {worldPosition.x, worldPosition.y, scale * textureWidth, scale * textureHeight};
     return dest;
 }
 
@@ -65,37 +65,37 @@ void BaseCharacter::SetCharacterTexture()
 
 Vector2 BaseCharacter::GetScreenPos()
 {
-    return screenPosition;
+    return worldPosition;
 }
 
 Vector2 BaseCharacter::GetPosOnMap() {
-    return worldPosition;
+    return mapPosition;
 }
 
 void BaseCharacter::SetLastPositionFrame()
 {
     // set last position frame in moveable area
-    lastPositionFrameOnMap = worldPosition;
+    lastPositionFrameOnMap = mapPosition;
 }
 
 void BaseCharacter::UndoMovement()
 {
     // set last position frame as current position which is on border
-    worldPosition = lastPositionFrameOnMap;
+    mapPosition = lastPositionFrameOnMap;
 }
 
 bool BaseCharacter::CanMoveOnMap(float windowWidth, float windowHeight, float mapWidth, float mapHeight) const
 {
-    return worldPosition.x < 0 ||
-           worldPosition.y < 0 ||
-           worldPosition.x + windowWidth > mapWidth * scale ||
-           worldPosition.y + windowHeight > mapHeight * scale;
+    return mapPosition.x < 0 ||
+           mapPosition.y < 0 ||
+           mapPosition.x + windowWidth > mapWidth * scale ||
+           mapPosition.y + windowHeight > mapHeight * scale;
 }
 
 Rectangle BaseCharacter::GetCollisionRec() {
     return Rectangle{
-            screenPosition.x,
-            screenPosition.y,
+            worldPosition.x,
+            worldPosition.y,
             textureWidth * scale,
             textureHeight * scale
     };

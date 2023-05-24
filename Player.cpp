@@ -8,7 +8,7 @@
 Player::Player(float windowWidth, float windowHeight,Texture2D idle, Texture2D run) :
         BaseCharacter(windowWidth, windowHeight, idle, run)
 {
-    screenPosition = {
+    worldPosition = {
             (static_cast<float>(windowWidth) / 2) - (4.0f * (0.5f * textureWidth)),
             (static_cast<float>(windowHeight) / 2) - (4.f * (0.5f * textureHeight))
     };
@@ -23,7 +23,7 @@ void Player::Move()
 
     if (Vector2Length(movementDirection) != 0)
     {
-        worldPosition = Vector2Add(worldPosition, Vector2Scale(Vector2Normalize(movementDirection), movementSpeed));
+        mapPosition = Vector2Add(mapPosition, Vector2Scale(Vector2Normalize(movementDirection), movementSpeed));
     }
 }
 

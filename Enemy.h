@@ -15,6 +15,7 @@ public:
     virtual void Tick(float deltaTime) override;
     void UpdatePositionOnMap();
     Vector2 GetDirectionVector();
+    Vector2 ScaleDirecionVector();
     void Move();
 private:
     Player* player;

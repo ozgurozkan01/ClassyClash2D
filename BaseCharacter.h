@@ -29,8 +29,8 @@ protected:
 
     const float movementSpeed;
     Vector2 movementDirection{};
-    Vector2 screenPosition{}; // In World Position
-    Vector2 worldPosition{}; // On Map Position
+    Vector2 worldPosition{}; // In World Position
+    Vector2 mapPosition{}; // On Map Position
 public:
     BaseCharacter(float windowWidth, float windowHeight, Texture2D idle, Texture2D run);
 

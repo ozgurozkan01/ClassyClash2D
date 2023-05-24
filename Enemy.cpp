@@ -22,17 +22,22 @@ void Enemy::Tick(float deltaTime)
 
 void Enemy::UpdatePositionOnMap()
 {
-    screenPosition = Vector2Subtract(worldPosition, player->GetPosOnMap());
+    worldPosition = Vector2Subtract(mapPosition, player->GetPosOnMap());
 }
 
 Vector2 Enemy::GetDirectionVector()
 {
-    directionVector = Vector2Normalize(Vector2Subtract(player->GetScreenPos(), screenPosition));
+    directionVector = Vector2Normalize(Vector2Subtract(player->GetScreenPos(), worldPosition));
+    return directionVector;
+}
+
+Vector2 Enemy::ScaleDirecionVector() {
+    directionVector = Vector2Scale(GetDirectionVector(), movementSpeed);
     return directionVector;
 }
 
 void Enemy::Move()
 {
-    directionVector = Vector2Scale(GetDirectionVector(), movementSpeed);
-    worldPosition = Vector2Add(worldPosition, directionVector);
+    mapPosition = Vector2Add(mapPosition, ScaleDirecionVector());
 }
+
