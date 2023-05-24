@@ -6,11 +6,17 @@
 #define CLASSYCLASH2D_ENEMY_H
 #include "BaseCharacter.h"
 
+class Player;
+
 class Enemy : public BaseCharacter{
 
 public:
-    Enemy(float windowWidth, float windowHeight, Texture2D idle, Texture2D run);
+    Enemy(float windowWidth, float windowHeight, Texture2D idle, Texture2D run, Player* player);
     virtual void Tick(float deltaTime) override;
+
+private:
+    Player* player;
+    void UpdatePositionOnMap();
 };
 
 

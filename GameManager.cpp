@@ -47,7 +47,8 @@ GameManager::GameManager() : windowWidth(384), windowHeight(384)
             static_cast<float>(windowWidth),
             static_cast<float>(windowHeight),
             LoadTexture("characters/goblin_idle_spritesheet.png"),
-            LoadTexture("characters/goblin_run_spritesheet.png"));
+            LoadTexture("characters/goblin_run_spritesheet.png"),
+            player);
 }
 
 void GameManager::Tick(float deltaTime) const
