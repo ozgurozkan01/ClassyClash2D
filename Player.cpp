@@ -32,6 +32,5 @@ void Player::Move()
 void Player::Tick(float deltaTime)
 {
     BaseCharacter::Tick(deltaTime);
-    
     Move();
 }
