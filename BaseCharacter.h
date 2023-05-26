@@ -32,7 +32,7 @@ protected:
     Vector2 worldPosition{}; // In World Position
     Vector2 mapPosition{}; // On Map Position
 public:
-    BaseCharacter(float windowWidth, float windowHeight, Texture2D idle, Texture2D run);
+    BaseCharacter(Texture2D idle, Texture2D run);
 
     [[nodiscard]] bool CanMoveOnMap(float windowWidth, float windowHeight, float mapWidth, float mapHeight) const;
     void Render();

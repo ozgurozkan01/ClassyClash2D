@@ -7,7 +7,7 @@
 #include "raymath.h"
 
 Enemy::Enemy(float windowWidth, float windowHeight, Texture2D idle, Texture2D run, Player* player) :
-        BaseCharacter(windowWidth, windowHeight, idle, run)
+        BaseCharacter(idle, run)
 {
     this->player = player;
     movementSpeed = 2.5f;

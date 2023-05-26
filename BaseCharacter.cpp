@@ -4,7 +4,9 @@
 
 #include "BaseCharacter.h"
 #include "raymath.h"
-BaseCharacter::BaseCharacter(float windowWidth, float windowHeight, Texture2D idle, Texture2D run) : timeLimitBetweenTwoTexture(1.f / 12.f), maxTextureAmount(6.f)
+#include <iostream>
+
+BaseCharacter::BaseCharacter(Texture2D idle, Texture2D run) : timeLimitBetweenTwoTexture(1.f / 12.f), maxTextureAmount(6.f)
 {
     scale = 4.f;
 

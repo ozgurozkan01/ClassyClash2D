@@ -6,7 +6,7 @@
 #include "raymath.h"
 
 Player::Player(float windowWidth, float windowHeight,Texture2D idle, Texture2D run) :
-        BaseCharacter(windowWidth, windowHeight, idle, run)
+        BaseCharacter(idle, run)
 {
     worldPosition = {
             (static_cast<float>(windowWidth) / 2) - (4.0f * (0.5f * textureWidth)),
@@ -31,6 +31,6 @@ void Player::Move()
 
 void Player::Tick(float deltaTime)
 {
-    Move();
     BaseCharacter::Tick(deltaTime);
+    Move();
 }
