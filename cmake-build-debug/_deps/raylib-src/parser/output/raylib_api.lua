@@ -647,27 +647,27 @@ return {
         {
           type = "int",
           name = "value",
-          description = "BaseCharacter value (Unicode)"
+          description = "Character value (Unicode)"
         },
         {
           type = "int",
           name = "offsetX",
-          description = "BaseCharacter offset X when drawing"
+          description = "Character offset X when drawing"
         },
         {
           type = "int",
           name = "offsetY",
-          description = "BaseCharacter offset Y when drawing"
+          description = "Character offset Y when drawing"
         },
         {
           type = "int",
           name = "advanceX",
-          description = "BaseCharacter advance position X"
+          description = "Character advance position X"
         },
         {
           type = "Image",
           name = "image",
-          description = "BaseCharacter image data"
+          description = "Character image data"
         }
       }
     },

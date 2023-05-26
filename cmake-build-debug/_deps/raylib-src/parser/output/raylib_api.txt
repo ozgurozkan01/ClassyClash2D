@@ -354,11 +354,11 @@ Struct 10: NPatchInfo (6 fields)
 Struct 11: GlyphInfo (5 fields)
   Name: GlyphInfo
   Description: GlyphInfo, font characters glyphs info
-  Field[1]: int value // BaseCharacter value (Unicode)
-  Field[2]: int offsetX // BaseCharacter offset X when drawing
-  Field[3]: int offsetY // BaseCharacter offset Y when drawing
-  Field[4]: int advanceX // BaseCharacter advance position X
-  Field[5]: Image image // BaseCharacter image data
+  Field[1]: int value // Character value (Unicode)
+  Field[2]: int offsetX // Character offset X when drawing
+  Field[3]: int offsetY // Character offset Y when drawing
+  Field[4]: int advanceX // Character advance position X
+  Field[5]: Image image // Character image data
 Struct 12: Font (6 fields)
   Name: Font
   Description: Font, font texture and GlyphInfo array data
