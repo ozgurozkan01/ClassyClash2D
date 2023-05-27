@@ -12,7 +12,7 @@ Map::Map() : mapScale(4.f)
 void Map::DrawMap()
 {
     DrawTextureEx(mapTexture, position, 0, mapScale, WHITE);
-}
+} 
 
 Texture2D Map::GetMapTexture()
 {
