@@ -27,6 +27,7 @@ void Player::Move()
     {
         mapPosition = Vector2Add(mapPosition, Vector2Scale(Vector2Normalize(movementDirection), movementSpeed));
     }
+    
 }
 
 void Player::Tick(float deltaTime)
