@@ -14,7 +14,6 @@ private:
     Texture2D currentTexture{};
     Rectangle source{};
     Rectangle dest{};
-    float leftOrRightDirection;
     float scale;
     const float timeLimitBetweenTwoTexture;
     const float maxTextureAmount;
@@ -23,7 +22,7 @@ private:
     Vector2 lastPositionFrameOnMap{};
 
 protected:
-
+    float leftOrRightDirection;
     float textureHeight;
     float textureWidth;
 

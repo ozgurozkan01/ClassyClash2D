@@ -8,7 +8,11 @@
 #include "BaseCharacter.h"
 #include "raylib.h"
 
+class Weapon;
+
 class Player : public BaseCharacter{
+
+    Weapon* sword;
 
 public:
 
