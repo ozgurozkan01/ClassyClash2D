@@ -17,7 +17,7 @@ class Weapon {
 
     Vector2 origin;
     Vector2 offset;
-    Rectangle weaponCollisionRec;
+    Rectangle weaponCollisionRec; 
 public:
 
     Weapon(Texture2D weaponTex, Player* player);
