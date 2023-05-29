@@ -16,7 +16,7 @@ Player::Player(float windowWidth, float windowHeight,Texture2D idle, Texture2D r
 
     movementSpeed = 4.f;
 
-    sword = new Weapon(LoadTexture("characters/weapon_sword.png"));
+    sword = new Weapon(LoadTexture("characters/weapon_sword.png"), this);
 }
 void Player::Move()
 {
@@ -36,5 +36,5 @@ void Player::Tick(float deltaTime)
 {
     BaseCharacter::Tick(deltaTime);
     Move();
-    sword->Tick(deltaTime, GetScreenPos().x, GetScreenPos().y, leftOrRightDirection);
+    sword->Tick(deltaTime);
 }

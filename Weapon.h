@@ -7,18 +7,26 @@
 
 #include "raylib.h"
 
+class Player;
+
 class Weapon {
 
+    Player* player;
     Texture2D weaponTexture;
     float scale;
+
+    Vector2 origin;
+    Vector2 offset;
+    Rectangle weaponCollisionRec;
 public:
 
-    Weapon(Texture2D weaponTex);
+    Weapon(Texture2D weaponTex, Player* player);
 
-    void Tick(float deltaTime, float playerPosX, float playerPosY, float rightLeft);
-    Rectangle SetSource(float rightLeft);
-    Rectangle SetDest(float playerPosX, float playerPosY);
-    void DrawWeapon(float playerPosX, float playerPosY, float rightLeft);
+    void Tick(float deltaTime);
+    Rectangle SetSource();
+    Rectangle SetDest();
+    void DrawWeapon();
+    void SetWeaponOrigin();
 };
 
 

@@ -22,7 +22,6 @@ private:
     Vector2 lastPositionFrameOnMap{};
 
 protected:
-    float leftOrRightDirection;
     float textureHeight;
     float textureWidth;
 
@@ -31,6 +30,8 @@ protected:
     Vector2 worldPosition{}; // In World Position
     Vector2 mapPosition{}; // On Map Position
 public:
+    float leftOrRightDirection;
+
     BaseCharacter(Texture2D idle, Texture2D run);
 
     [[nodiscard]] bool CanMoveOnMap(float windowWidth, float windowHeight, float mapWidth, float mapHeight) const;
