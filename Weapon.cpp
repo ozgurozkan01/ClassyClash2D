@@ -38,12 +38,19 @@ void Weapon::SetWeaponOrigin()
     {
         origin = {0.f, weaponTexture.height * scale};
         offset = {35.f, 55.f};
-        weaponCollisionRec = {};
+        weaponCollisionRec = {player->GetScreenPos().x + offset.x,
+                              player->GetScreenPos().y + offset.y - weaponTexture.height * scale,
+                              weaponTexture.width * scale,
+                              weaponTexture.height * scale};
     }
 
     else
     {
         origin = {weaponTexture.width * scale, weaponTexture.height * scale};
         offset = {25.f, 55.f};
+        weaponCollisionRec = {player->GetScreenPos().x + offset.x - weaponTexture.width * scale,
+                              player->GetScreenPos().y + offset.y - weaponTexture.height * scale,
+                              weaponTexture.width * scale,
+                              weaponTexture.height * scale};
     }
 }

@@ -70,3 +70,5 @@
 26	859	7070588229507860	CMakeFiles/ClassyClash2D.dir/BaseCharacter.cpp.obj	c6cc8f06d4b718eb
 5	210	7070588428294812	CMakeFiles/ClassyClash2D.dir/Player.cpp.obj	b3c809a6b80dedf5
 211	406	7070588430197153	ClassyClash2D.exe	674260259c264bf9
+5	77	7070590293055532	CMakeFiles/ClassyClash2D.dir/Weapon.cpp.obj	49e820ba3dd5e629
+77	278	7070590294997849	ClassyClash2D.exe	674260259c264bf9
