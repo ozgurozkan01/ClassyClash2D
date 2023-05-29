@@ -15,6 +15,7 @@ public:
 
     Weapon(Texture2D weaponTex);
 
+    void Tick(float deltaTime, float playerPosX, float playerPosY, float rightLeft);
     Rectangle SetSource(float rightLeft);
     Rectangle SetDest(float playerPosX, float playerPosY);
     void DrawWeapon(float playerPosX, float playerPosY, float rightLeft);

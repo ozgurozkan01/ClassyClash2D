@@ -36,5 +36,5 @@ void Player::Tick(float deltaTime)
 {
     BaseCharacter::Tick(deltaTime);
     Move();
-    sword->DrawWeapon(GetScreenPos().x, GetScreenPos().y, leftOrRightDirection);
+    sword->Tick(deltaTime, GetScreenPos().x, GetScreenPos().y, leftOrRightDirection);
 }

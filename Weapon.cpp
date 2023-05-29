@@ -22,3 +22,8 @@ void Weapon::DrawWeapon(float playerPosX, float playerPosY, float rightLeft)
 {
     DrawTexturePro(weaponTexture, SetSource(rightLeft), SetDest(playerPosX, playerPosY), {}, 0.f, WHITE);
 }
+
+void Weapon::Tick(float deltaTime, float playerPosX, float playerPosY, float rightLeft)
+{
+    DrawWeapon(playerPosX, playerPosY, rightLeft);
+}
