@@ -25,7 +25,7 @@ void Player::Move()
     if (IsKeyDown(KEY_W)) movementDirection.y -= 1;
     if (IsKeyDown(KEY_S)) movementDirection.y += 1;
 
-    if (IsCharacterRunning())
+    if (IsCharacterRunning()) 
     {
         mapPosition = Vector2Add(mapPosition, Vector2Scale(Vector2Normalize(movementDirection), movementSpeed));
     }

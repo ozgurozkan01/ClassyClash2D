@@ -24,7 +24,7 @@ void Enemy::Tick(float deltaTime)
 
     if (CheckCollisionRecs(target->GetCollisionRec(), GetCollisionRec()))
     {
-        target->TakeDamage(damage * deltaTime); 
+        target->TakeDamage(damage * deltaTime);
     }
 }
 
