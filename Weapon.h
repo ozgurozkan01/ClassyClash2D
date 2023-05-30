@@ -14,10 +14,10 @@ class Weapon {
     Player* player;
     Texture2D weaponTexture;
     float scale;
-
+    float rotation;
     Vector2 origin;
     Vector2 offset;
-    Rectangle weaponCollisionRec; 
+    Rectangle weaponCollisionRec;
 public:
 
     Weapon(Texture2D weaponTex, Player* player);

@@ -23,7 +23,7 @@ Rectangle Weapon::SetDest() {
 
 void Weapon::DrawWeapon()
 {
-    DrawTexturePro(weaponTexture, SetSource(), SetDest(), origin, 0.f, WHITE);
+    DrawTexturePro(weaponTexture, SetSource(), SetDest(), origin, rotation, WHITE);
 }
 
 void Weapon::Tick(float deltaTime)
@@ -38,6 +38,7 @@ void Weapon::SetWeaponOrigin()
     {
         origin = {0.f, weaponTexture.height * scale};
         offset = {35.f, 55.f};
+        rotation = 15.f;
         weaponCollisionRec = {player->GetScreenPos().x + offset.x,
                               player->GetScreenPos().y + offset.y - weaponTexture.height * scale,
                               weaponTexture.width * scale,
@@ -52,5 +53,6 @@ void Weapon::SetWeaponOrigin()
                               player->GetScreenPos().y + offset.y - weaponTexture.height * scale,
                               weaponTexture.width * scale,
                               weaponTexture.height * scale};
+        rotation = -15.f;
     }
 }
