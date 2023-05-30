@@ -38,7 +38,7 @@ void Weapon::SetWeaponOrigin()
     {
         origin = {0.f, weaponTexture.height * scale};
         offset = {35.f, 55.f};
-        rotation = 15.f;
+        rotation = IsMouseButtonDown(MOUSE_BUTTON_LEFT) ? 35.f : 0.f;
         weaponCollisionRec = {player->GetScreenPos().x + offset.x,
                               player->GetScreenPos().y + offset.y - weaponTexture.height * scale,
                               weaponTexture.width * scale,
@@ -53,6 +53,6 @@ void Weapon::SetWeaponOrigin()
                               player->GetScreenPos().y + offset.y - weaponTexture.height * scale,
                               weaponTexture.width * scale,
                               weaponTexture.height * scale};
-        rotation = -15.f;
+        rotation = IsMouseButtonDown(MOUSE_BUTTON_LEFT) ? -35.f : 0.f;
     }
 }
