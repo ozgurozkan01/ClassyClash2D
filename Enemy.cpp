@@ -9,8 +9,9 @@
 Enemy::Enemy(float windowWidth, float windowHeight, Texture2D idle, Texture2D run, Player* player) :
         BaseCharacter(idle, run)
 {
-    this->player = player;
+    this->target = player;
     movementSpeed = 2.5f;
+    damage = 10.f;
 }
 
 void Enemy::Tick(float deltaTime)
@@ -20,16 +21,21 @@ void Enemy::Tick(float deltaTime)
     UpdatePositionOnMap();
     Move();
     BaseCharacter::Tick(deltaTime);
+
+    if (CheckCollisionRecs(target->GetCollisionRec(), GetCollisionRec()))
+    {
+        target->TakeDamage(damage * deltaTime);
+    }
 }
 
 void Enemy::UpdatePositionOnMap()
 {
-    worldPosition = Vector2Subtract(mapPosition, player->GetPosOnMap());
+    worldPosition = Vector2Subtract(mapPosition, target->GetPosOnMap());
 }
 
 Vector2 Enemy::GetDirectionVector()
 {
-    movementDirection = Vector2Normalize(Vector2Subtract(player->GetScreenPos(), worldPosition));
+    movementDirection = Vector2Normalize(Vector2Subtract(target->GetScreenPos(), worldPosition));
     return movementDirection;
 }
 

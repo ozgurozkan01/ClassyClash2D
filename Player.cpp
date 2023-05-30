@@ -14,7 +14,7 @@ Player::Player(float windowWidth, float windowHeight,Texture2D idle, Texture2D r
     };
 
     movementSpeed = 4.f;
-
+    health = 100.f;
     sword = new Weapon(LoadTexture("characters/weapon_sword.png"), this);
 }
 void Player::Move()
@@ -38,4 +38,18 @@ void Player::Tick(float deltaTime)
     BaseCharacter::Tick(deltaTime);
     Move();
     sword->Tick(deltaTime);
+}
+
+float Player::GetHealth() const {
+    return health;
+}
+
+void Player::TakeDamage(float damage)
+{
+    health -= damage;
+
+    if (health <= 0.f)
+    {
+        SetIsAlive(false);
+    }
 }

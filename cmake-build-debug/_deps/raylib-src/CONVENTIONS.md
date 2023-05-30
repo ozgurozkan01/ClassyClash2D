@@ -87,7 +87,7 @@ resources/audio/music/main_theme.ogg
 resources/screens/logo/logo.png
 resources/screens/title/title.png
 resources/screens/gameplay/background.png
-resources/characters/player.png
+resources/characters/target.png
 resources/characters/enemy_slime.png
 resources/common/font_arial.ttf
 resources/common/gui.png

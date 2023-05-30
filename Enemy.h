@@ -18,7 +18,8 @@ public:
     Vector2 ScaleDirecionVector();
     void Move();
 private:
-    Player* player;
+    Player* target;
+    float damage;
 };
 
 

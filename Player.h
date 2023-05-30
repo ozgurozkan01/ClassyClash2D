@@ -11,12 +11,17 @@
 
 class Player : public BaseCharacter{
 
+    float health;
+
 public:
     Weapon* sword;
 
     Player(float windowWidth, float windowHeight,Texture2D idle, Texture2D run);
-    void Move();
     virtual void Tick(float deltaTime) override;
+    void Move();
+    void TakeDamage(float damage);
+    float GetHealth() const;
+
 };
 
 
