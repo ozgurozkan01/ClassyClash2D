@@ -56,3 +56,7 @@ void Weapon::SetWeaponOrigin()
         rotation = IsMouseButtonDown(MOUSE_BUTTON_LEFT) ? -35.f : 0.f;
     }
 }
+
+Rectangle Weapon::GetWeaponCollisionRec() {
+    return weaponCollisionRec;
+}

@@ -23,10 +23,12 @@ public:
     Weapon(Texture2D weaponTex, Player* player);
 
     void Tick(float deltaTime);
-    Rectangle SetSource();
-    Rectangle SetDest();
     void DrawWeapon();
     void SetWeaponOrigin();
+    Rectangle SetSource();
+    Rectangle SetDest();
+    Rectangle GetWeaponCollisionRec();
+
 };
 
 

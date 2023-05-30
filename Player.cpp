@@ -4,7 +4,6 @@
 
 #include "Player.h"
 #include "raymath.h"
-#include "Weapon.h"
 
 Player::Player(float windowWidth, float windowHeight,Texture2D idle, Texture2D run) :
         BaseCharacter(idle, run)

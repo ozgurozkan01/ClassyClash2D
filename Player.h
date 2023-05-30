@@ -7,14 +7,12 @@
 
 #include "BaseCharacter.h"
 #include "raylib.h"
-
-class Weapon;
+#include "Weapon.h"
 
 class Player : public BaseCharacter{
 
-    Weapon* sword;
-
 public:
+    Weapon* sword;
 
     Player(float windowWidth, float windowHeight,Texture2D idle, Texture2D run);
     void Move();

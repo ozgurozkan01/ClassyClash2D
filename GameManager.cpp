@@ -82,6 +82,11 @@ void GameManager::Tick(float deltaTime) const
     }
 
     goblin->Tick(deltaTime);
+
+    if (IsMouseButtonDown(MOUSE_BUTTON_LEFT) && CheckCollisionRecs(goblin->GetCollisionRec(), player->sword->GetWeaponCollisionRec()))
+    {
+        goblin->SetIsAlive(false);
+    }
 }
 
 GameManager::~GameManager()
