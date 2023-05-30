@@ -22,6 +22,7 @@ private:
     Vector2 lastPositionFrameOnMap{};
 
 protected:
+    bool isAlive;
     float textureHeight;
     float textureWidth;
 
@@ -33,23 +34,26 @@ public:
     float leftOrRightDirection;
 
     BaseCharacter(Texture2D idle, Texture2D run);
+    virtual void Tick(float deltaTime);
 
-    [[nodiscard]] bool CanMoveOnMap(float windowWidth, float windowHeight, float mapWidth, float mapHeight) const;
     void Render();
     void SetViewDirection();
     void AnimateTexture(float deltaTime);
+    void SetCharacterTexture();
+    void SetLastPositionFrame();
+    void UndoMovement();
+    void SetIsAlive(bool isAlive);
+
     Vector2 GetPosOnMap();
     Vector2 GetScreenPos();
     Rectangle SetDest();
     Rectangle SetSource();
     Rectangle GetCollisionRec();
     Texture2D GetCharacterTexture();
-    void SetCharacterTexture();
-    void SetLastPositionFrame();
-    void UndoMovement();
-    virtual void Tick(float deltaTime);
-    bool IsCharacterRunning();
 
+    bool IsCharacterRunning();
+    bool CanMoveOnMap(float windowWidth, float windowHeight, float mapWidth, float mapHeight) const;
+    bool GetIsAlive();
 };
 
 

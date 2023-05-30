@@ -4,12 +4,11 @@
 
 #include "BaseCharacter.h"
 #include "raymath.h"
-#include <iostream>
 
 BaseCharacter::BaseCharacter(Texture2D idle, Texture2D run) : timeLimitBetweenTwoTexture(1.f / 12.f), maxTextureAmount(6.f)
 {
     scale = 4.f;
-
+    isAlive = true;
     currentTexture = idle;
     idleTexture = idle;
     runningTexture = run;
@@ -128,4 +127,13 @@ void BaseCharacter::Tick(float deltaTime)
 bool BaseCharacter::IsCharacterRunning()
 {
     return Vector2Length(movementDirection) != 0;
+}
+
+void BaseCharacter::SetIsAlive(bool isAlive)
+{
+    this->isAlive = isAlive;
+}
+
+bool BaseCharacter::GetIsAlive() {
+    return isAlive;
 }
