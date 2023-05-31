@@ -4,7 +4,7 @@
 
 #include "Player.h"
 #include "raymath.h"
-
+#include <string>
 Player::Player(float windowWidth, float windowHeight,Texture2D idle, Texture2D run) :
         BaseCharacter(idle, run)
 {
@@ -52,4 +52,11 @@ void Player::TakeDamage(float damage)
     {
         SetIsAlive(false);
     }
+}
+
+void Player::DrawHealth()
+{
+    std::string playerHealth = "Health : ";
+    playerHealth.append(std::to_string(GetHealth()), 0, 5);
+    DrawText(playerHealth.c_str(), 225, 25, 20,RED);
 }

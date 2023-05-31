@@ -34,7 +34,8 @@ public:
 
     GameManager();
     ~GameManager();
-    void Tick(float deltaTime) const;
+    void Tick(float deltaTime);
+    void GameOver();
 };
 
 

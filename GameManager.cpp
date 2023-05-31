@@ -51,11 +51,22 @@ GameManager::GameManager() : windowWidth(384), windowHeight(384)
             player);
 }
 
-void GameManager::Tick(float deltaTime) const
+void GameManager::Tick(float deltaTime)
 {
 
     map->Move(player->GetPosOnMap());
     map->DrawMap();
+
+
+    if (!player->GetIsAlive())
+    {
+        GameOver();
+    }
+
+    else
+    {
+        player->DrawHealth();
+    }
 
     player->Tick(deltaTime);
 
@@ -87,6 +98,8 @@ void GameManager::Tick(float deltaTime) const
     {
         goblin->SetIsAlive(false);
     }
+
+
 }
 
 GameManager::~GameManager()
@@ -102,4 +115,9 @@ GameManager::~GameManager()
     {
         delete prop;
     }
+}
+
+void GameManager::GameOver() {
+    DrawText("Game Over!", 150, 150, 40, RED);
+    EndDrawing();
 }

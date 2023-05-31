@@ -20,7 +20,9 @@ public:
     virtual void Tick(float deltaTime) override;
     void Move();
     void TakeDamage(float damage);
+    void DrawHealth();
     float GetHealth() const;
+
 
 };
 
