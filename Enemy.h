@@ -14,12 +14,14 @@ public:
     Enemy(float windowWidth, float windowHeight, Texture2D idle, Texture2D run, Player* player);
     virtual void Tick(float deltaTime) override;
     void UpdatePositionOnMap();
+    void Move();
+    bool ShouldMove();
     Vector2 GetDirectionVector();
     Vector2 ScaleDirecionVector();
-    void Move();
 private:
     Player* target;
     float damage;
+    float radius;
 };
 
 

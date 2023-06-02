@@ -5,6 +5,7 @@
 #include "Enemy.h"
 #include "Player.h"
 #include "raymath.h"
+#include <iostream>
 
 Enemy::Enemy(float windowWidth, float windowHeight, Texture2D idle, Texture2D run, Player* player) :
         BaseCharacter(idle, run)
@@ -12,14 +13,17 @@ Enemy::Enemy(float windowWidth, float windowHeight, Texture2D idle, Texture2D ru
     this->target = player;
     movementSpeed = 2.5f;
     damage = 10.f;
+    radius = 25.f;
 }
 
 void Enemy::Tick(float deltaTime)
 {
     if (!GetIsAlive()) return;
-
     UpdatePositionOnMap();
-    Move();
+
+    if (ShouldMove()) Move();
+    else movementDirection = {};
+
     BaseCharacter::Tick(deltaTime);
 
     if (CheckCollisionRecs(target->GetCollisionRec(), GetCollisionRec()))
@@ -47,5 +51,9 @@ Vector2 Enemy::ScaleDirecionVector() {
 void Enemy::Move()
 {
     mapPosition = Vector2Add(mapPosition, ScaleDirecionVector());
+}
+
+bool Enemy::ShouldMove() {
+    return Vector2Length(Vector2Subtract(target->GetScreenPos(), worldPosition)) > radius;
 }
 

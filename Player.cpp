@@ -36,10 +36,9 @@ void Player::Move()
 void Player::Tick(float deltaTime)
 {
     if (!GetIsAlive()) return;
-
-    BaseCharacter::Tick(deltaTime);
     Move();
     sword->Tick(deltaTime);
+    BaseCharacter::Tick(deltaTime);
 }
 
 void Player::TakeDamage(float damage)
