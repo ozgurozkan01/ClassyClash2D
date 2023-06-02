@@ -9,21 +9,18 @@
 #include "raylib.h"
 #include "Weapon.h"
 
-class Player : public BaseCharacter{
+class Health;
 
-    float health;
+class Player : public BaseCharacter {
 
 public:
     Weapon* sword;
+    Health* health;
 
     Player(float windowWidth, float windowHeight,Texture2D idle, Texture2D run);
     virtual void Tick(float deltaTime) override;
     void Move();
     void TakeDamage(float damage);
-    void DrawHealth();
-    float GetHealth() const;
-
-
 };
 
 
