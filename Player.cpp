@@ -44,12 +44,10 @@ void Player::Tick(float deltaTime)
 
 void Player::TakeDamage(float damage)
 {
-/*
-    health->DecreaseHealth(damage);
+/*    health->DecreaseHealth(damage);
 
-    if (health <= 0.f)
+    if (health->GetHealth() <= 0.f)
     {
         SetIsAlive(false);
-    }
-*/
+    }*/
 }
