@@ -25,12 +25,11 @@ private:
 
     // CLASSES
     Map* map;
-    Player* player;
     Prop *props[6];
     Enemy* goblin;
 
 public:
-
+    Player* player;
 
     GameManager();
     ~GameManager();

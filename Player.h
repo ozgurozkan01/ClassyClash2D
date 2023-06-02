@@ -15,7 +15,7 @@ class Player : public BaseCharacter {
 
 public:
     Weapon* sword;
-    Health* health;
+    Health* healthObject;
 
     Player(float windowWidth, float windowHeight,Texture2D idle, Texture2D run);
     virtual void Tick(float deltaTime) override;

@@ -7,6 +7,7 @@
 #include "Player.h"
 #include "Prop.h"
 #include "Enemy.h"
+#include "Health.h"
 #include <iostream>
 
 GameManager::GameManager() : windowWidth(384), windowHeight(384)
@@ -65,40 +66,39 @@ void GameManager::Tick(float deltaTime)
 
     else
     {
-        player->DrawHealth();
-    }
+        player->healthObject->DrawHealth();
 
-    player->Tick(deltaTime);
+        player->Tick(deltaTime);
 
-    if (player->CanMoveOnMap(static_cast<float>(windowWidth),
-                             static_cast<float>(windowHeight),
-                             static_cast<float>(map->GetMapTexture().width),
-                             static_cast<float>(map->GetMapTexture().height)))
-    {
-        player->UndoMovement();
-    }
-
-    for (auto prop : props)
-    {
-        prop->DrawProp(player->GetPosOnMap());
-    }
-
-
-    for (auto prop : props)
-    {
-        if(CheckCollisionRecs(prop->GetCollisionRec(player->GetPosOnMap()), player->GetCollisionRec()))
+        if (player->CanMoveOnMap(static_cast<float>(windowWidth),
+                                 static_cast<float>(windowHeight),
+                                 static_cast<float>(map->GetMapTexture().width),
+                                 static_cast<float>(map->GetMapTexture().height)))
         {
             player->UndoMovement();
         }
+
+        for (auto prop : props)
+        {
+            prop->DrawProp(player->GetPosOnMap());
+        }
+
+
+        for (auto prop : props)
+        {
+            if(CheckCollisionRecs(prop->GetCollisionRec(player->GetPosOnMap()), player->GetCollisionRec()))
+            {
+                player->UndoMovement();
+            }
+        }
+
+        goblin->Tick(deltaTime);
+
+        if (IsMouseButtonDown(MOUSE_BUTTON_LEFT) && CheckCollisionRecs(goblin->GetCollisionRec(), player->sword->GetWeaponCollisionRec()))
+        {
+            goblin->SetIsAlive(false);
+        }
     }
-
-    goblin->Tick(deltaTime);
-
-    if (IsMouseButtonDown(MOUSE_BUTTON_LEFT) && CheckCollisionRecs(goblin->GetCollisionRec(), player->sword->GetWeaponCollisionRec()))
-    {
-        goblin->SetIsAlive(false);
-    }
-
 
 }
 
@@ -118,6 +118,5 @@ GameManager::~GameManager()
 }
 
 void GameManager::GameOver() {
-    DrawText("Game Over!", 150, 150, 40, RED);
-    EndDrawing();
+    DrawText("Game Over!", 100, 150, 40, RED);
 }
