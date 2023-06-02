@@ -3,8 +3,10 @@
 //
 
 #include "Player.h"
+#include "Health.h"
 #include "raymath.h"
 #include <string>
+
 Player::Player(float windowWidth, float windowHeight,Texture2D idle, Texture2D run) :
         BaseCharacter(idle, run)
 {
@@ -14,8 +16,8 @@ Player::Player(float windowWidth, float windowHeight,Texture2D idle, Texture2D r
     };
 
     movementSpeed = 4.f;
-    health = 100.f;
     sword = new Weapon(LoadTexture("characters/weapon_sword.png"), this);
+    health = new Health();
 }
 void Player::Move()
 {
@@ -40,23 +42,14 @@ void Player::Tick(float deltaTime)
     sword->Tick(deltaTime);
 }
 
-float Player::GetHealth() const {
-    return health;
-}
-
 void Player::TakeDamage(float damage)
 {
-    health -= damage;
+/*
+    health->DecreaseHealth(damage);
 
     if (health <= 0.f)
     {
         SetIsAlive(false);
     }
-}
-
-void Player::DrawHealth()
-{
-    std::string playerHealth = "Health : ";
-    playerHealth.append(std::to_string(GetHealth()), 0, 5);
-    DrawText(playerHealth.c_str(), 225, 25, 20,RED);
+*/
 }
