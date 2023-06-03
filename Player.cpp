@@ -50,3 +50,13 @@ void Player::TakeDamage(float damage)
         SetIsAlive(false);
     }
 }
+
+void Player::SetColor()
+{
+
+}
+
+void Player::ColorTimer()
+{
+
+}

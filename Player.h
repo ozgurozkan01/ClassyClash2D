@@ -17,10 +17,14 @@ public:
     Weapon* sword;
     Health* healthObject;
 
+
+
     Player(float windowWidth, float windowHeight,Texture2D idle, Texture2D run);
     virtual void Tick(float deltaTime) override;
     void Move();
     void TakeDamage(float damage);
+    void SetColor();
+    void ColorTimer();
 };
 
 
