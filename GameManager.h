@@ -26,7 +26,7 @@ private:
     // CLASSES
     Map* map;
     Prop *props[6];
-    Enemy* goblin;
+    Enemy* enemies[10];
 
 public:
     Player* player;

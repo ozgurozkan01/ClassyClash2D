@@ -5,15 +5,16 @@
 #include "Enemy.h"
 #include "Player.h"
 #include "raymath.h"
-#include <iostream>
 
-Enemy::Enemy(float windowWidth, float windowHeight, Texture2D idle, Texture2D run, Player* player) :
+Enemy::Enemy(float positionX, float positionY, Texture2D idle, Texture2D run, Player* player) :
         BaseCharacter(idle, run)
 {
     this->target = player;
     movementSpeed = 2.5f;
     damage = 10.f;
     radius = 25.f;
+    mapPosition = {positionX, positionY};
+    maxNoticeDistance = 200.f;
 }
 
 void Enemy::Tick(float deltaTime)
@@ -54,6 +55,7 @@ void Enemy::Move()
 }
 
 bool Enemy::ShouldMove() {
-    return Vector2Length(Vector2Subtract(target->GetScreenPos(), worldPosition)) > radius;
+    return Vector2Length(Vector2Subtract(target->GetScreenPos(), worldPosition)) > radius &&
+            Vector2Length(Vector2Subtract(target->GetScreenPos(), worldPosition)) < maxNoticeDistance;
 }
 

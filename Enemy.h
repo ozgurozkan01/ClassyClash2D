@@ -11,7 +11,7 @@ class Player;
 class Enemy : public BaseCharacter{
 
 public:
-    Enemy(float windowWidth, float windowHeight, Texture2D idle, Texture2D run, Player* player);
+    Enemy(float positionX, float positionY, Texture2D idle, Texture2D run, Player* player);
     virtual void Tick(float deltaTime) override;
     void UpdatePositionOnMap();
     void Move();
@@ -22,6 +22,7 @@ private:
     Player* target;
     float damage;
     float radius;
+    float maxNoticeDistance;
 };
 
 

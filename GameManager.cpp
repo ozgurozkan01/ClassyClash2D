@@ -10,7 +10,7 @@
 #include "Health.h"
 #include <iostream>
 
-GameManager::GameManager() : windowWidth(384), windowHeight(384)
+GameManager::GameManager() : windowWidth(500), windowHeight(500)
 {
     srand(time(NULL));
     gameName = "Classy Clash 2D";
@@ -44,12 +44,29 @@ GameManager::GameManager() : windowWidth(384), windowHeight(384)
             props[i] = new Prop{propPositions[i], LoadTexture("nature_tileset/Log.png")};
     }
 
-    goblin = new Enemy(
-            static_cast<float>(windowWidth),
-            static_cast<float>(windowHeight),
-            LoadTexture("characters/goblin_idle_spritesheet.png"),
-            LoadTexture("characters/goblin_run_spritesheet.png"),
-            player);
+    for (int i = 0; i < (sizeof(enemies) / sizeof(enemies[0])); ++i)
+    {
+        float xPos = (rand() % 2750) + 250.f;
+        float yPos = (rand() % 2750) + 250.f;
+
+        if (i % 2 == 0)
+        {
+            enemies[i] = new Enemy(
+                    xPos,
+                    yPos,
+                    LoadTexture("characters/goblin_idle_spritesheet.png"),
+                    LoadTexture("characters/goblin_run_spritesheet.png"),
+                    player);
+        }
+
+        else
+            enemies[i] = new Enemy(
+                    xPos,
+                    yPos,
+                    LoadTexture("characters/slime_idle_spritesheet.png"),
+                    LoadTexture("characters/slime_run_spritesheet.png"),
+                    player);
+    }
 }
 
 void GameManager::Tick(float deltaTime)
@@ -92,11 +109,17 @@ void GameManager::Tick(float deltaTime)
             }
         }
 
-        goblin->Tick(deltaTime);
-
-        if (IsMouseButtonDown(MOUSE_BUTTON_LEFT) && CheckCollisionRecs(goblin->GetCollisionRec(), player->sword->GetWeaponCollisionRec()))
+        for (auto enemy : enemies)
         {
-            goblin->SetIsAlive(false);
+            enemy->Tick(deltaTime);
+        }
+
+        for (auto enemy : enemies)
+        {
+            if (IsMouseButtonDown(MOUSE_BUTTON_LEFT) && CheckCollisionRecs(enemy    ->GetCollisionRec(), player->sword->GetWeaponCollisionRec()))
+            {
+                enemy->SetIsAlive(false);
+            }
         }
     }
 
