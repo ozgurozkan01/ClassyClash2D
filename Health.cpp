@@ -15,7 +15,7 @@ void Health::DrawHealth()
 {
     std::string playerHealth = "Health : ";
     playerHealth.append(std::to_string(GetHealth()), 0, 5);
-    DrawText(playerHealth.c_str(), 300, 25, 20,RED);
+    DrawText(playerHealth.c_str(), 350, 25, 20,RED);
 }
 
 float Health::GetHealth() const
