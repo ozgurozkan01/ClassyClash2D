@@ -25,11 +25,11 @@ protected:
     bool isAlive;
     float textureHeight;
     float textureWidth;
-
     float movementSpeed;
     Vector2 movementDirection{};
     Vector2 worldPosition{}; // In World Position
     Vector2 mapPosition{}; // On Map Position
+    Color color;
 public:
     float leftOrRightDirection;
 

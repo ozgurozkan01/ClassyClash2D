@@ -16,11 +16,12 @@ BaseCharacter::BaseCharacter(Texture2D idle, Texture2D run) : timeLimitBetweenTw
     textureWidth = static_cast<float>(currentTexture.width) / maxTextureAmount;
     textureHeight = static_cast<float>(currentTexture.height);
     leftOrRightDirection = 1.f;
+    color = WHITE;
 }
 
 void BaseCharacter::Render()
 {
-    DrawTexturePro(currentTexture, SetSource(), SetDest(), Vector2{0.f, 0.f}, 1, WHITE);
+    DrawTexturePro(currentTexture, SetSource(), SetDest(), Vector2{0.f, 0.f}, 1, color);
 }
 
 Rectangle BaseCharacter::SetDest() {

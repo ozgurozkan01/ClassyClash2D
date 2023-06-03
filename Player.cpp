@@ -5,7 +5,7 @@
 #include "Player.h"
 #include "Health.h"
 #include "raymath.h"
-#include <string>
+#include <iostream>
 
 Player::Player(float windowWidth, float windowHeight,Texture2D idle, Texture2D run) :
         BaseCharacter(idle, run)
@@ -18,7 +18,12 @@ Player::Player(float windowWidth, float windowHeight,Texture2D idle, Texture2D r
     movementSpeed = 4.f;
     sword = new Weapon(LoadTexture("characters/weapon_sword.png"), this);
     healthObject = new Health();
+
+    maxColorUpdateAmount = 6;
+    colorFrameUpdatingTime = 1.f / 6.f;
+    isColorChangeable = false;
 }
+
 void Player::Move()
 {
     movementDirection = {0.f, 0.f};
@@ -35,10 +40,16 @@ void Player::Move()
 
 void Player::Tick(float deltaTime)
 {
+    BaseCharacter::Tick(deltaTime);
+
     if (!GetIsAlive()) return;
     Move();
     sword->Tick(deltaTime);
-    BaseCharacter::Tick(deltaTime);
+
+    if (isColorChangeable)
+    {
+        ColorTimer();
+    }
 }
 
 void Player::TakeDamage(float damage)
@@ -53,10 +64,34 @@ void Player::TakeDamage(float damage)
 
 void Player::SetColor()
 {
+    if (colorUpdateAmount % 2 == 0)
+    {
+        color = RED;
+        return;
+    }
 
+    color = WHITE;
 }
 
 void Player::ColorTimer()
 {
+    if (colorUpdatingTimer >= colorFrameUpdatingTime)
+    {
+        SetColor();
+        colorUpdatingTimer = 0;
+        colorUpdateAmount++;
+    }
 
+    if (colorUpdateAmount == maxColorUpdateAmount)
+    {
+        SetIsColorChangeable(false);
+        colorUpdateAmount = 0;
+    }
+    std::cout << colorUpdateAmount << std::endl;
+    colorUpdatingTimer += GetFrameTime();
+}
+
+void Player::SetIsColorChangeable(bool isColorChangeable)
+{
+    this->isColorChangeable = isColorChangeable;
 }

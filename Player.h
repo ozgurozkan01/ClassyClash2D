@@ -13,11 +13,16 @@ class Health;
 
 class Player : public BaseCharacter {
 
+    bool isColorChangeable;
+
+    int maxColorUpdateAmount;
+    int colorUpdateAmount{};
+    float colorFrameUpdatingTime;
+    float colorUpdatingTimer{};
+
 public:
     Weapon* sword;
     Health* healthObject;
-
-
 
     Player(float windowWidth, float windowHeight,Texture2D idle, Texture2D run);
     virtual void Tick(float deltaTime) override;
@@ -25,6 +30,7 @@ public:
     void TakeDamage(float damage);
     void SetColor();
     void ColorTimer();
+    void SetIsColorChangeable(bool isColorChangeable);
 };
 
 
