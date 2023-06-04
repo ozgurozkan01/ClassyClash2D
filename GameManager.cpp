@@ -116,13 +116,18 @@ void GameManager::Tick(float deltaTime)
 
         for (auto enemy : enemies)
         {
-            if (IsMouseButtonDown(MOUSE_BUTTON_LEFT) && CheckCollisionRecs(enemy    ->GetCollisionRec(), player->sword->GetWeaponCollisionRec()))
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionRecs(enemy->GetCollisionRec(), player->sword->GetWeaponCollisionRec()))
             {
-                enemy->SetIsAlive(false);
+                enemy->SetIsColorChangeable(true);
+                enemy->TakeDamage(player->damage);
             }
         }
     }
 
+}
+
+void GameManager::GameOver() {
+    DrawText("Game Over!", 100, 150, 40, RED);
 }
 
 GameManager::~GameManager()
@@ -138,8 +143,4 @@ GameManager::~GameManager()
     {
         delete prop;
     }
-}
-
-void GameManager::GameOver() {
-    DrawText("Game Over!", 100, 150, 40, RED);
 }

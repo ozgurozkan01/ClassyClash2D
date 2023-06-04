@@ -11,7 +11,7 @@ Enemy::Enemy(float positionX, float positionY, Texture2D idle, Texture2D run, Pl
 {
     this->target = player;
     movementSpeed = 2.5f;
-    damage = 10.f;
+    damage = 3.f;
     radius = 25.f;
     mapPosition = {positionX, positionY};
     maxNoticeDistance = 200.f;

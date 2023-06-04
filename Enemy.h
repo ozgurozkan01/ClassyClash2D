@@ -20,7 +20,6 @@ public:
     Vector2 ScaleDirecionVector();
 private:
     Player* target;
-    float damage;
     float radius;
     float maxNoticeDistance;
 };

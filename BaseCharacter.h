@@ -6,6 +6,8 @@
 #define CLASSYCLASH2D_BASECHARACTER_H
 #include "raylib.h"
 
+class Health;
+
 class BaseCharacter {
 private:
 
@@ -14,12 +16,17 @@ private:
     Texture2D currentTexture{};
     Rectangle source{};
     Rectangle dest{};
-    float scale;
+    Vector2 lastPositionFrameOnMap{};
     const float timeLimitBetweenTwoTexture;
     const float maxTextureAmount;
+    float scale;
     float timeCounterBetweenTextures{};
     float currentTextureFrame{};
-    Vector2 lastPositionFrameOnMap{};
+    float colorFrameUpdatingTime;
+    float colorUpdatingTimer{};
+    int maxColorUpdateAmount;
+    int colorUpdateAmount{};
+    bool isColorChangeable;
 
 protected:
     bool isAlive;
@@ -32,6 +39,8 @@ protected:
     Color color;
 public:
     float leftOrRightDirection;
+    float damage;
+    Health* healthObject;
 
     BaseCharacter(Texture2D idle, Texture2D run);
     virtual void Tick(float deltaTime);
@@ -43,6 +52,10 @@ public:
     void SetLastPositionFrame();
     void UndoMovement();
     void SetIsAlive(bool isAlive);
+    void TakeDamage(float damage);
+    void SetColor();
+    void ColorTimer();
+    void SetIsColorChangeable(bool isColorChangeable);
 
     Vector2 GetPosOnMap();
     Vector2 GetScreenPos();
