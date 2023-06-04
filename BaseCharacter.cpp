@@ -172,7 +172,7 @@ void BaseCharacter::ColorTimer()
         colorUpdatingTimer = 0;
         colorUpdateAmount++;
     }
-
+ 
     if (colorUpdateAmount == maxColorUpdateAmount)
     {
         SetIsColorChangeable(false);

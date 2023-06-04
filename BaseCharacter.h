@@ -56,7 +56,7 @@ public:
     void SetColor();
     void ColorTimer();
     void SetIsColorChangeable(bool isColorChangeable);
-
+ 
     Vector2 GetPosOnMap();
     Vector2 GetScreenPos();
     Rectangle SetDest();
