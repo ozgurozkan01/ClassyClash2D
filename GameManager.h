@@ -26,7 +26,7 @@ private:
     // CLASSES
     Map* map;
     Prop *props[6];
-    Enemy* enemies[10];
+    Enemy* enemies[50];
 
 public:
     Player* player;

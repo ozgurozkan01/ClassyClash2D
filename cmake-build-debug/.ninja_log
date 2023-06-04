@@ -82,3 +82,9 @@
 461	664	7074888951094701	ClassyClash2D.exe	38af56d6bdf27c09
 9	404	7075240469754196	CMakeFiles/ClassyClash2D.dir/Health.cpp.obj	aa8bca1059ed28ca
 405	790	7075240473560736	ClassyClash2D.exe	38af56d6bdf27c09
+6	280	7075815191751969	CMakeFiles/ClassyClash2D.dir/Player.cpp.obj	b3c809a6b80dedf5
+12	283	7075815191751969	CMakeFiles/ClassyClash2D.dir/BaseCharacter.cpp.obj	c6cc8f06d4b718eb
+283	579	7075815194720682	ClassyClash2D.exe	38af56d6bdf27c09
+4	84	7075815728095286	CMakeFiles/ClassyClash2D.dir/main.cpp.obj	88c8ead714b12469
+9	372	7075815730986401	CMakeFiles/ClassyClash2D.dir/GameManager.cpp.obj	279c4f670eda5644
+372	589	7075815733089147	ClassyClash2D.exe	38af56d6bdf27c09
