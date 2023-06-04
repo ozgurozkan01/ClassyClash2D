@@ -23,7 +23,6 @@ BaseCharacter::BaseCharacter(Texture2D idle, Texture2D run) : timeLimitBetweenTw
     colorFrameUpdatingTime = 1.f / 6.f;
     isColorChangeable = false;
     healthObject = new Health();
-
 }
 
 void BaseCharacter::Render()
@@ -172,7 +171,7 @@ void BaseCharacter::ColorTimer()
         colorUpdatingTimer = 0;
         colorUpdateAmount++;
     }
- 
+
     if (colorUpdateAmount == maxColorUpdateAmount)
     {
         SetIsColorChangeable(false);
