@@ -111,7 +111,9 @@ Rectangle BaseCharacter::GetCollisionRec() {
 
 void BaseCharacter::SetViewDirection()
 {
-    movementDirection.x < 0.f ? leftOrRightDirection = -1.f : leftOrRightDirection = 1.f;
+    //movementDirection.x < 0.f ? leftOrRightDirection = -1.f : leftOrRightDirection = 1.f;
+    if(movementDirection.x < 0.f) leftOrRightDirection = -1.f;
+    else if (movementDirection.x > 0.f) leftOrRightDirection = 1.f;
 }
 
 void BaseCharacter::Tick(float deltaTime)
