@@ -102,7 +102,7 @@ void GameManager::Tick(float deltaTime)
 
 
         for (auto prop : props)
-        {
+        { 
             if(CheckCollisionRecs(prop->GetCollisionRec(player->GetPosOnMap()), player->GetCollisionRec()))
             {
                 player->UndoMovement();
